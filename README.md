@@ -1,10 +1,8 @@
-# Advent of Code 2020 answers
+# My Advent of Code answers
 
-My answers and code for the Advent of Code 2020 puzzles
+My answers and code for the [Advent of Code](https://adventofcode.com/).
 
-Want to participate on your own? Head to https://adventofcode.com/2020
-
-I have no affiliation with that site. This repo is simply my own code and answers for the Advent of Code 2020 calendar.
+(I have no affiliation with the AoC).
 
 ## ⚠ SPOILERS AHEAD ⚠
 
@@ -15,5 +13,3 @@ You've been warned.
 ## Probably not my best work.
 
 Don't expect my best code work, but I do try to make *some* effort in terms of code quality.
-
-Plus, this is my first excuse to use Jupyter notebooks, so that's a plus.
