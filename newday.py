@@ -44,7 +44,7 @@ def main():
     input_file = day_dir / "input.txt"
     if not input_file.exists():
         input_file.touch()
-        print(f">> Generated input file")
+        print(">> Generated input file")
 
     main_file = day_dir / "main.ipynb"
     if not main_file.exists():
@@ -55,7 +55,7 @@ def main():
             f"https://adventofcode.com/{options.year}/day/{options.day}",
         ]
         main_file.write_text(json.dumps(content))
-        print(f">> Generated main file")
+        print(">> Generated main file")
 
 
 if __name__ == "__main__":
