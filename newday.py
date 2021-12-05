@@ -1,11 +1,28 @@
 import argparse
+import json
+from copy import deepcopy
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
-STARTING_FILES = [
-    'input.txt',
-    'main.ipynb',
-]
+
+MAIN_TEMPLATE = {
+    "cells": [
+        {
+            "cell_type": "markdown",
+            "metadata": {},
+            "source": [],
+        }
+    ],
+    "metadata": {
+        "language_info": {
+            "name": "python",
+        },
+        "orig_nbformat": 4,
+    },
+    "nbformat": 4,
+    "nbformat_minor": 2,
+}
+
 
 def main():
     parser = argparse.ArgumentParser()
@@ -24,11 +41,21 @@ def main():
     day_dir = BASE_DIR / str(options.year) / f"day{options.day:0>2}"
     day_dir.mkdir(exist_ok=True)
 
-    for filename in STARTING_FILES:
-        newfile = day_dir / filename
-        if not newfile.exists():
-            newfile.touch()
-            print(f">> Generated {newfile}")
+    input_file = day_dir / "input.txt"
+    if not input_file.exists():
+        input_file.touch()
+        print(f">> Generated input file")
+
+    main_file = day_dir / "main.ipynb"
+    if not main_file.exists():
+        content = deepcopy(MAIN_TEMPLATE)
+        content["cells"][0]["source"] = [
+            f"# Day {options.day} - \n",
+            "\n",
+            f"https://adventofcode.com/{options.year}/day/{options.day}",
+        ]
+        main_file.write_text(json.dumps(content))
+        print(f">> Generated main file")
 
 
 if __name__ == "__main__":
