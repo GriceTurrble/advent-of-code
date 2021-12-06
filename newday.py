@@ -11,7 +11,18 @@ MAIN_TEMPLATE = {
             "cell_type": "markdown",
             "metadata": {},
             "source": [],
-        }
+        },
+        {
+            "cell_type": "code",
+            "execution_count": None,
+            "metadata": {},
+            "outputs": [],
+            "source": [
+                "from pathlib import Path\n",
+                "\n",
+                "INPUTS = Path('input.txt').read_text().strip().split('\\n')",
+            ],
+        },
     ],
     "metadata": {
         "language_info": {
