@@ -5,6 +5,9 @@ description = ""
 authors = ["Galen Rice <griceturrble@protonmail.com>"]
 license = "MIT"
 readme = "README.md"
+packages = [
+    { include = "newday.py" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -19,3 +22,6 @@ flake8 = "^6.0.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+newday = "newday:main"
