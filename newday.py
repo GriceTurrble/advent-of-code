@@ -1,7 +1,8 @@
-import argparse
 import json
 from copy import deepcopy
 from pathlib import Path
+
+import click
 
 BASE_DIR = Path(__file__).resolve().parent
 
@@ -35,21 +36,11 @@ MAIN_TEMPLATE = {
 }
 
 
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "year",
-        type=int,
-        choices=[2020, 2021],
-    )
-    parser.add_argument(
-        "day",
-        type=int,
-        choices=list(range(1, 26)),
-    )
-
-    options = parser.parse_args()
-    day_dir = BASE_DIR / str(options.year) / f"day{options.day:0>2}"
+@click.command()
+@click.argument("year", type=click.IntRange(2020, 2022))
+@click.argument("day", type=click.IntRange(1, 26))
+def main(year, day):
+    day_dir = BASE_DIR / str(year) / f"day{day:0>2}"
     day_dir.mkdir(exist_ok=True)
 
     input_file = day_dir / "input.txt"
@@ -61,9 +52,9 @@ def main():
     if not main_file.exists():
         content = deepcopy(MAIN_TEMPLATE)
         content["cells"][0]["source"] = [
-            f"# Day {options.day} - \n",
+            f"# Day {day} - \n",
             "\n",
-            f"https://adventofcode.com/{options.year}/day/{options.day}",
+            f"https://adventofcode.com/{year}/day/{day}",
         ]
         main_file.write_text(json.dumps(content))
         print(">> Generated main file")
