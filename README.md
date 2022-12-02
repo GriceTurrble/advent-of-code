@@ -6,10 +6,10 @@ My answers and code for the [Advent of Code](https://adventofcode.com/).
 
 ## ⚠ SPOILERS AHEAD ⚠
 
-These are my **answers** to the puzzles. If you want to solve them yourself, *no peeking!*
+These are my **answers** to the puzzles. If you want to solve them yourself, _no peeking!_
 
 You've been warned.
 
 ## Probably not my best work.
 
-Don't expect my best code work, but I do try to make *some* effort in terms of code quality.
+Don't expect my best code work, but I do try to make _some_ effort in terms of code quality.
