@@ -37,8 +37,8 @@ MAIN_TEMPLATE = {
 
 
 @click.command()
-@click.argument("year", type=click.IntRange(2020, 2022))
-@click.argument("day", type=click.IntRange(1, 26))
+@click.option("--year", type=click.IntRange(2020, 2022), prompt="What YEAR is it?")
+@click.option("--day", type=click.IntRange(1, 25), prompt="Which day of the month?")
 def main(year, day):
     day_dir = BASE_DIR / str(year) / f"day{day:0>2}"
     day_dir.mkdir(exist_ok=True)
@@ -46,7 +46,7 @@ def main(year, day):
     input_file = day_dir / "input.txt"
     if not input_file.exists():
         input_file.touch()
-        print(">> Generated input file")
+        print(">> Generated new input file")
 
     main_file = day_dir / "main.ipynb"
     if not main_file.exists():
@@ -57,7 +57,9 @@ def main(year, day):
             f"https://adventofcode.com/{year}/day/{day}",
         ]
         main_file.write_text(json.dumps(content))
-        print(">> Generated main file")
+        print(">> Generated new notebook for the day")
+    print(">> DONE. You can get started by opening:")
+    print(main_file)
 
 
 if __name__ == "__main__":
