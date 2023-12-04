@@ -3,34 +3,8 @@
 
 Link: <https://adventofcode.com/2023/day/1>
 */
-use clap::Parser;
+use lube::{get_file_contents, get_input_file_path, reverse_string};
 use regex::Regex;
-use std::fs;
-
-#[derive(Parser)]
-struct Cli {
-    /// The path to the input file
-    input_file: std::path::PathBuf,
-}
-
-/// Utility for splitting the contents of a text file into a vector of strings, one per line in the file.
-fn get_file_contents(file_path: std::path::PathBuf) -> Vec<String> {
-    let contents: String =
-        fs::read_to_string(file_path).expect("Should have been able to read the file");
-
-    // Map to string and collect, adapted from: https://stackoverflow.com/a/37547426/19462241
-    let contents: Vec<String> = contents.trim().split("\n").map(|s| s.to_string()).collect();
-
-    contents
-}
-
-/// String reverse utility. Borrowed from somewhere.
-fn reverse_string(input: &str) -> String {
-    let mut chars: Vec<char> = input.chars().collect();
-    chars.reverse();
-    let reversed_string: String = chars.into_iter().collect();
-    reversed_string
-}
 
 /// For part 1, extract the first and last digits in the string.
 fn extract_numbers_one(inp: &str) -> [i32; 2] {
@@ -44,7 +18,9 @@ fn extract_numbers_one(inp: &str) -> [i32; 2] {
 
     [
         *numbers.get(0).expect("Could not find index"),
-        *numbers.get(numbers.len() - 1).expect("Could not find index"),
+        *numbers
+            .get(numbers.len() - 1)
+            .expect("Could not find index"),
     ]
 }
 
@@ -75,7 +51,10 @@ fn extract_numbers_two(inp: &str) -> [i32; 2] {
         _ => first.parse::<i32>().expect("Cannot parse as number"),
     };
 
-    let last = re_reverse.find(reverse_inp.as_str()).expect("No match found").as_str();
+    let last = re_reverse
+        .find(reverse_inp.as_str())
+        .expect("No match found")
+        .as_str();
     let last = match last {
         "eno" => 1,
         "owt" => 2,
@@ -92,18 +71,6 @@ fn extract_numbers_two(inp: &str) -> [i32; 2] {
     [first, last]
 }
 
-fn main() {
-    // Take CLI args
-    let args: Cli = Cli::parse();
-
-    // Read contents of the file into a string
-    let contents: Vec<String> = get_file_contents(args.input_file);
-
-    // part_one(contents.clone());
-    part_one(contents.clone());
-    part_two(contents.clone());
-}
-
 /// Performs the full method for part 1.
 fn part_one(contents: Vec<String>) {
     let mut total: i32 = 0;
@@ -114,7 +81,7 @@ fn part_one(contents: Vec<String>) {
             .expect("Cannot parse as number");
         total += real;
     }
-    println!("Part one solution: {total}");
+    println!(">> {total}");
 }
 
 /// Performs the full method for part 2.
@@ -127,5 +94,17 @@ fn part_two(contents: Vec<String>) {
             .expect("Cannot parse as number");
         total += real;
     }
-    println!("Part two solution: {total}");
+    println!(">> {total}");
+}
+
+fn main() {
+    let inp_file_path: std::path::PathBuf = get_input_file_path();
+    let contents: Vec<String> = get_file_contents(inp_file_path);
+
+    // part_one(contents.clone());
+    println!("PART 1:");
+    part_one(contents.clone());
+    println!("PART 2:");
+    part_two(contents.clone());
+    println!("DONE");
 }
