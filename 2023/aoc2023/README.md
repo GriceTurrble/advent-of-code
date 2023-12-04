@@ -44,7 +44,7 @@ Start from this sample:
 
 Link: <https://adventofcode.com/2023/day/X>
 */
-use lube::{get_file_contents, get_input_file_path, ...};
+use lube::{get_file_contents, get_input_file_path};
 
 /// Part 1 solution
 fn part_one(contents: Vec<String>) {
