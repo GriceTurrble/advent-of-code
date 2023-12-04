@@ -50,7 +50,8 @@ repos:
     hooks:
       - id: bandit
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: "v3.1.0"
+    rev: "v4.0.0-alpha.3"
     hooks:
       - id: prettier
+        entry: env PRETTIER_LEGACY_CI=1 prettier
         types: [markdown]
