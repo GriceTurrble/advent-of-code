@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+      "name": "-- 2023",
+			"path": "2023/aoc2023"
+		}
+	],
+  "settings": {
+    "files.exclude": {
+      "2023/": true
+    }
+  }
+}
