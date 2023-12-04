@@ -39,12 +39,19 @@ To add a new day to the workspace:
 Start from this sample:
 
 ```rust
+/*!
+## Advent of Code 2023 Day X
+
+Link: <https://adventofcode.com/2023/day/X>
+*/
 use lube::{get_file_contents, get_input_file_path, ...};
 
+/// Part 1 solution
 fn part_one(contents: Vec<String>) {
     println!("Hello...");
 }
 
+/// Part 2 solution
 fn part_two(contents: Vec<String>) {
     println!("...world!");
 }
