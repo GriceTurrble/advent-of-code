@@ -69,3 +69,14 @@ fn main() {
 ```
 
 Then you can hack away one part at a time. Ideally move most of the work out to functions, so potentially a working solution for part 1 can be reused and customized for part 2 with less effort.
+
+## Usage
+
+To run the code, head to *this* directory (containing this README) and use `cargo run`. Specify the day with `-p` and a path to an input file:
+
+```bash
+# sample data
+cargo run -p day03 -- day03/sample.txt
+# inputs
+cargo run -p day03 -- day03/input.txt
+```
