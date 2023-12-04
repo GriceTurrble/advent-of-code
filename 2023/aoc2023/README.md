@@ -65,6 +65,7 @@ fn main() {
     println!("PART 2:");
     part_two(contents.clone());
     println!("DONE");
+}
 ```
 
 Then you can hack away one part at a time. Ideally move most of the work out to functions, so potentially a working solution for part 1 can be reused and customized for part 2 with less effort.

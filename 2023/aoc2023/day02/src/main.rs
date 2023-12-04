@@ -24,3 +24,4 @@ fn main() {
     println!("PART 2:");
     part_two(contents.clone());
     println!("DONE");
+}
