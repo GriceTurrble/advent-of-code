@@ -14,14 +14,20 @@ then the part is a part number and should be pulled.
 Numbers all range from 1 to 3 digits
 */
 use lube::{get_file_contents, get_input_file_path};
+use regex::Regex;
 
 /// Part 1 solution
-fn part_one(contents: &Vec<String>) {
-    println!("Hello...");
+fn part_one(_contents: &Vec<String>) {
+    let re: Regex = Regex::new(r"\d+").expect("Failed to parse regex pattern");
+    let hay: &str = _contents.get(0).expect("What").as_str();
+    let mat: Vec<_> = re.find_iter(hay)
+        .map(|m| (m.as_str(), m.range()))
+        .collect();
+    println!("{:?}", mat);
 }
 
 /// Part 2 solution
-fn part_two(contents: &Vec<String>) {
+fn part_two(_contents: &Vec<String>) {
     println!("...world!");
 }
 
