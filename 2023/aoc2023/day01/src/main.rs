@@ -72,9 +72,9 @@ fn extract_numbers_two(inp: &str) -> [i32; 2] {
 }
 
 /// Performs the full method for part 1.
-fn part_one(contents: Vec<String>) {
+fn part_one(contents: &Vec<String>) {
     let mut total: i32 = 0;
-    for content in &contents {
+    for content in contents {
         let [first, last] = extract_numbers_one(content);
         let real: i32 = format!("{}{}", first.to_string(), last.to_string())
             .parse::<i32>()
@@ -85,9 +85,9 @@ fn part_one(contents: Vec<String>) {
 }
 
 /// Performs the full method for part 2.
-fn part_two(contents: Vec<String>) {
+fn part_two(contents: &Vec<String>) {
     let mut total: i32 = 0;
-    for content in &contents {
+    for content in contents {
         let [first, last] = extract_numbers_two(content);
         let real: i32 = format!("{}{}", first.to_string(), last.to_string())
             .parse::<i32>()
@@ -101,10 +101,9 @@ fn main() {
     let inp_file_path: std::path::PathBuf = get_input_file_path();
     let contents: Vec<String> = get_file_contents(inp_file_path);
 
-    // part_one(contents.clone());
     println!("PART 1:");
-    part_one(contents.clone());
+    part_one(&contents);
     println!("PART 2:");
-    part_two(contents.clone());
+    part_two(&contents);
     println!("DONE");
 }

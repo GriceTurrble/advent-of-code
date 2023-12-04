@@ -47,12 +47,12 @@ Link: <https://adventofcode.com/2023/day/X>
 use lube::{get_file_contents, get_input_file_path};
 
 /// Part 1 solution
-fn part_one(contents: Vec<String>) {
+fn part_one(contents: &Vec<String>) {
     println!("Hello...");
 }
 
 /// Part 2 solution
-fn part_two(contents: Vec<String>) {
+fn part_two(contents: &Vec<String>) {
     println!("...world!");
 }
 
@@ -61,9 +61,9 @@ fn main() {
     let contents: Vec<String> = get_file_contents(inp_file_path);
 
     println!("PART 1:");
-    part_one(contents.clone());
+    part_one(&contents);
     println!("PART 2:");
-    part_two(contents.clone());
+    part_two(&contents);
     println!("DONE");
 }
 ```
