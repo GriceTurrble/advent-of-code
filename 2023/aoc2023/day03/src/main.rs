@@ -13,17 +13,34 @@ then the part is a part number and should be pulled.
 
 Numbers all range from 1 to 3 digits
 */
+#![allow(dead_code, unused_mut, unused_variables)] // Remove this at the end!
 use lube::{get_file_contents, get_input_file_path};
 use regex::Regex;
+use std::ops::Range;
+
+fn has_nearby_symbol(range: Range<usize>, _contents: &Vec<String>) -> bool {
+    true
+}
 
 /// Part 1 solution
 fn part_one(_contents: &Vec<String>) {
+    let mut total: i32 = 0;
     let re: Regex = Regex::new(r"\d+").expect("Failed to parse regex pattern");
-    let hay: &str = _contents.get(0).expect("What").as_str();
-    let mat: Vec<_> = re.find_iter(hay)
-        .map(|m| (m.as_str(), m.range()))
-        .collect();
-    println!("{:?}", mat);
+    for (line_num, line) in _contents.iter().enumerate() {
+        let matches: Vec<(i32, Range<usize>)> = re
+            .find_iter(line)
+            .map(|m| {
+                (
+                    m.as_str().parse().expect("Could not parse number"),
+                    m.range(),
+                )
+            })
+            .collect();
+        println!("{:?} {:?}", line_num, matches);
+        println!("{:?}", matches[0].1);
+        return;
+    }
+    println!(">> {total}");
 }
 
 /// Part 2 solution

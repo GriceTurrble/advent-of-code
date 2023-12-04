@@ -44,6 +44,7 @@ Start from this sample:
 
 Link: <https://adventofcode.com/2023/day/X>
 */
+#![allow(dead_code, unused_mut, unused_variables)] // Remove this at the end!
 use lube::{get_file_contents, get_input_file_path};
 
 /// Part 1 solution
