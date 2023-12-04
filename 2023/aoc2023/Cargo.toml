@@ -27,3 +27,7 @@ members = [
     # "day24",
     # "day25",
 ]
+
+[workspace.dependencies]
+clap = { version = "4.4.10", features = ["derive"] }
+regex = "1.10.2"
