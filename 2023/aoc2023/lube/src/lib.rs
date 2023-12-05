@@ -1,3 +1,4 @@
+#![doc = include_str!("../README.md")]
 use clap::Parser;
 use std::fs;
 
@@ -7,13 +8,15 @@ struct Cli {
     input_file: std::path::PathBuf,
 }
 
+/// Parses CLI args via `clap`.
 pub fn get_input_file_path() -> std::path::PathBuf {
     let args: Cli = Cli::parse();
 
     args.input_file
 }
 
-/// Takes an input file from CLI,
+/// Given a file path for input, reads text from that file and produces a Vector of Strings,
+/// one for each line of the file.
 pub fn get_file_contents(file_path: std::path::PathBuf) -> Vec<String> {
     // let args: Cli = Cli::parse();
     let contents: String =
