@@ -1,10 +1,9 @@
 #![doc = include_str!("../README.md")]
-use std::collections::HashSet;
+use std::collections::{HashSet, HashMap};
 
 use lube::{get_file_contents, get_input_file_path};
 
 #[derive(Debug)]
-#[allow(dead_code)]
 struct GameDetails {
     card_id: u32,
     winning_nums: HashSet<u32>,
@@ -35,7 +34,7 @@ fn part_one(_contents: &Vec<String>) {
         }
         total += adder;
     }
-    println!("{:?}", total);
+    println!(">> {total}");
 }
 
 fn get_game_details(line: &String) -> GameDetails {
@@ -78,5 +77,18 @@ fn get_num_shared(details: &GameDetails) -> u32 {
 
 /// Part 2 solution
 fn part_two(_contents: &Vec<String>) {
-    println!("...world!");
+    let mut total: u32 = 0;
+    let mut game_counts: HashMap<u32, u32> = HashMap::new();
+    for line in _contents {
+        let game_details: GameDetails = get_game_details(line);
+        let num_shared = get_num_shared(&game_details);
+        let num_runs = *game_counts.entry(game_details.card_id).or_insert(1);
+        total += num_runs;
+        for _ in 0..num_runs {
+            for new_game in (game_details.card_id + 1)..=(game_details.card_id + num_shared) {
+                *game_counts.entry(new_game).or_insert(1) += 1;
+            }
+        }
+    }
+    println!(">> {total}");
 }
