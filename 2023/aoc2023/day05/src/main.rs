@@ -1,5 +1,5 @@
 #![doc = include_str!("../README.md")]
-use std::{ops::Range, cmp};
+use std::{cmp, ops::Range};
 // Adds the `.collect_tuple()` feature
 use itertools::Itertools;
 
@@ -25,7 +25,7 @@ fn main() {
     println!("--------------------  DONE  --------------------");
 }
 
-fn get_seed_numbers(seed_section: &String) -> Vec<i64> {
+fn get_seed_numbers_one(seed_section: &String) -> Vec<i64> {
     let seeds: Vec<i64> = seed_section
         .split_once(':')
         .expect("Failed to split the seed nums")
@@ -61,10 +61,9 @@ fn get_mapping(section: &String) -> Result<Vec<SeedMap>, Box<dyn std::error::Err
 
 /// Part 1 solution
 fn part_one(_contents: &Vec<String>) {
-    // Split the first set off into their seed values
-    let seeds: Vec<i64> = get_seed_numbers(&_contents[0]);
+    let seeds: Vec<i64> = get_seed_numbers_one(&_contents[0]);
     let mut maps: Vec<Vec<SeedMap>> = Vec::new();
-    for section in &_contents[1.._contents.len()] {
+    for section in &_contents[1..] {
         maps.push(get_mapping(section).expect("Failed to get a mapping."));
     }
     let mut final_result: i64 = -1;
@@ -87,7 +86,49 @@ fn part_one(_contents: &Vec<String>) {
     println!(">> {final_result}");
 }
 
+fn get_seed_numbers_two(seed_section: &String) -> Vec<Range<i64>> {
+    let mut seed_ranges: Vec<Range<i64>> = Vec::new();
+    let seeds: Vec<i64> = seed_section
+        .split_once(':')
+        .expect("Failed to split the seed nums")
+        .1
+        .trim()
+        .split_whitespace()
+        .map(|s| s.trim().parse().expect("Failed to parse seed number"))
+        .collect();
+    // Main difference between this and part 1 is in parsing the seed values as ranges,
+    // which will be far more efficient than returning a Vec of individual numbers.
+    for seed_range in seeds.chunks(2) {
+        seed_ranges.push(seed_range[0]..(seed_range[0] + seed_range[1]));
+    }
+    seed_ranges
+}
+
 /// Part 2 solution
 fn part_two(_contents: &Vec<String>) {
-    println!("...world!");
+    let seed_ranges: Vec<Range<i64>> = get_seed_numbers_two(&_contents[0]);
+    let mut maps: Vec<Vec<SeedMap>> = Vec::new();
+    for section in &_contents[1..] {
+        maps.push(get_mapping(section).expect("Failed to get a mapping."));
+    }
+    let mut final_result: i64 = -1;
+    for seed_range in seed_ranges {
+        for seed in seed_range {
+            let mut result: i64 = seed;
+            for mapping in &maps {
+                for seed_map in mapping {
+                    if seed_map.source.contains(&result) {
+                        result += seed_map.diff;
+                        break;
+                    }
+                }
+            }
+            if final_result == -1 {
+                final_result = result;
+            } else {
+                final_result = cmp::min(final_result, result);
+            }
+        }
+    }
+    println!(">> {final_result}");
 }

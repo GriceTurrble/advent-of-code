@@ -63,4 +63,20 @@ And once we calculate those final values in some collection, we just find the mi
 
 ## Part 2
 
-*TBD*
+Now we need to deal with these seed values coming in pairs, each pair determining a range (lower bound and length). Alright then.
+
+I think I'll initially try brute-forcing this one. Keep the same methodology with the mappings, and just generate seed values out of these new ranges. Most of the machinery should stay the same.
+
+*One hour later...*
+
+Didn't quite work out in debug mode. Thankfully, running it with the release flag helps speed things up considerably:
+
+```shell
+cargo run -rp day05 -- day05/input.txt
+```
+
+This got it to the right answer relatively fast, though not *really* that fast (still took about a minute to process).
+
+A better solution would have been something like what I see here: https://www.youtube.com/watch?v=NmxHw_bHhGM
+
+But, works for me for now! I'm sure I'll figure out the more clever/better solutions some other time. :)
