@@ -15,15 +15,17 @@ pub fn get_input_file_path() -> std::path::PathBuf {
     args.input_file
 }
 
+/// Split a String by delimiter
+pub fn split_strings(contents: String, delimiter: &str) -> Vec<String> {
+    return contents.trim().split(delimiter).map(|s| s.to_string()).collect();
+}
+
 /// Given a file path for input, reads text from that file and produces a Vector of Strings,
 /// one for each line of the file.
-pub fn get_file_contents(file_path: std::path::PathBuf) -> Vec<String> {
+pub fn get_file_contents(file_path: std::path::PathBuf) -> String {
     // let args: Cli = Cli::parse();
     let contents: String =
         fs::read_to_string(file_path).expect("Should have been able to read the file");
-
-    // Map to string and collect, adapted from: https://stackoverflow.com/a/37547426/19462241
-    let contents: Vec<String> = contents.trim().split("\n").map(|s| s.to_string()).collect();
 
     contents
 }
