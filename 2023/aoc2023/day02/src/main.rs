@@ -1,8 +1,4 @@
-/*!
-## Advent of Code 2023 Day 2
-
-Link: <https://adventofcode.com/2023/day/2>
-*/
+#![doc = include_str!("../README.md")]
 use lube::{get_file_contents, get_input_file_path};
 use std::cmp;
 use std::collections::HashMap;

@@ -34,16 +34,22 @@ To add a new day to the workspace:
 
    You should default to adding the crate as a dep in the overall workspace, to keep things tidy. If there's any confusion at the individual binary level, break this rule and add it as a dep in the day, instead.
 
+6. Add a `README.md` file to the day directory (same level as `src/`, but not inside it), with contents:
+
+   ```markdown
+   # Advent of Code 2023 Day 1
+
+   Link: <https://adventofcode.com/2023/day/1>
+   ```
+
+7. Add an `input.txt` (and optionally, `sample.txt`) file(s) to the day directory. This will contain my inputs (and samples) for that day for easy reference.
+
 ## Getting started on a new day
 
 Start from this sample:
 
 ```rust
-/*!
-## Advent of Code 2023 Day X
-
-Link: <https://adventofcode.com/2023/day/X>
-*/
+#![doc = include_str!("../README.md")]
 #![allow(dead_code, unused_mut, unused_variables)] // Remove this at the end!
 use lube::{get_file_contents, get_input_file_path};
 

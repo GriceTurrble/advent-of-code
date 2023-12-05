@@ -8,3 +8,4 @@ edition = "2021"
 [dependencies]
 lube = { path = "../lube" }
 regex = { workspace = true }
+substring.workspace = true

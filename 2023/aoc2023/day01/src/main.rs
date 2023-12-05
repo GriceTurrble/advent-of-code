@@ -1,8 +1,4 @@
-/*!
-## Advent of Code 2023 Day 1
-
-Link: <https://adventofcode.com/2023/day/1>
-*/
+#![doc = include_str!("../README.md")]
 use lube::{get_file_contents, get_input_file_path, reverse_string};
 use regex::Regex;
 

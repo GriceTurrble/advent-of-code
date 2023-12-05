@@ -1,32 +1,36 @@
-/*!
-## Advent of Code 2023 Day 3
-
-Link: <https://adventofcode.com/2023/day/3>
-
-## Thought process
-
-We need to identify numbers in the schematic, which is the first issue.
-For that we should probably identify them via regex and find a means to parse out thier positions
-(either the start pos or the bounding box). If we know a number's position, presumably we can form
-a box around that number and get all symbols in that box. If any symbols are present other than `.`,
-then the part is a part number and should be pulled.
-
-Numbers all range from 1 to 3 digits
-*/
+#![doc = include_str!("../README.md")]
 #![allow(dead_code, unused_mut, unused_variables)] // Remove this at the end!
 use lube::{get_file_contents, get_input_file_path};
 use regex::Regex;
+use std::cmp;
 use std::ops::Range;
+use substring::Substring;
 
-fn has_nearby_symbol(range: Range<usize>, _contents: &Vec<String>) -> bool {
-    true
+fn is_a_part_num(rows: &[String], colrange: &Range<usize>) -> bool {
+    let re: Regex = Regex::new(r"[^\d\.]").expect("Failed to parse partnum regex");
+    for substr in rows.iter().map(|r| {
+        String::from(r.substring(
+            cmp::max((colrange.start as i32) - 1, 0) as usize,
+            cmp::min(colrange.end + 1, r.len() - 1),
+        ))
+    }) {
+        if let Some(mat) = re.find(&substr) {
+            return true;
+        }
+    }
+    false
 }
 
 /// Part 1 solution
 fn part_one(_contents: &Vec<String>) {
     let mut total: i32 = 0;
-    let re: Regex = Regex::new(r"\d+").expect("Failed to parse regex pattern");
+    let re: Regex = Regex::new(r"\d+").expect("Failed to parse numbers pattern");
     for (line_num, line) in _contents.iter().enumerate() {
+        let content_rows_range: Range<usize> = Range {
+            start: cmp::max((line_num as i32) - 1, 0) as usize,
+            end: cmp::min((line_num as i32) + 2, (_contents.len() as i32) - 1) as usize,
+        };
+        let content_rows: &[String] = &_contents[content_rows_range];
         let matches: Vec<(i32, Range<usize>)> = re
             .find_iter(line)
             .map(|m| {
@@ -36,9 +40,12 @@ fn part_one(_contents: &Vec<String>) {
                 )
             })
             .collect();
-        println!("{:?} {:?}", line_num, matches);
-        println!("{:?}", matches[0].1);
-        return;
+        for mat in matches {
+            let (num, range) = mat;
+            if is_a_part_num(&content_rows, &range) {
+                total += num;
+            }
+        }
     }
     println!(">> {total}");
 }
@@ -52,9 +59,9 @@ fn main() {
     let inp_file_path: std::path::PathBuf = get_input_file_path();
     let contents: Vec<String> = get_file_contents(inp_file_path);
 
-    println!("PART 1:");
+    println!("----- PART 1 -----");
     part_one(&contents);
-    println!("PART 2:");
+    println!("----- PART 2 -----");
     part_two(&contents);
-    println!("DONE");
+    println!("-----  DONE  -----");
 }
