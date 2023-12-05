@@ -1,5 +1,4 @@
 #![doc = include_str!("../README.md")]
-#![allow(dead_code, unused_mut, unused_variables)] // Remove this at the end!
 use lube::{get_file_contents, get_input_file_path};
 use regex::Regex;
 use std::cmp;
@@ -15,7 +14,7 @@ fn is_a_part_num(rows: &[String], colrange: &Range<usize>) -> bool {
             cmp::min(colrange.end + 1, r.len() - 1),
         ))
     }) {
-        if let Some(mat) = re.find(&substr) {
+        if let Some(_mat) = re.find(&substr) {
             return true;
         }
     }
