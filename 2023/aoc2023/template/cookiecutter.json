@@ -1,0 +1,4 @@
+{
+  "day": "25",
+  "__daydir": "day{{ '{:0>2}'.format(cookiecutter.day) }}"
+}
