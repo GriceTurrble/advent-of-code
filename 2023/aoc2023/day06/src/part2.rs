@@ -1,5 +1,4 @@
 /// Part 2 solution
-#[allow(unused_mut)]
 pub fn solution(contents: &Vec<String>) {
     let (_, timing) = contents[0]
         .split_once(':')
