@@ -9,6 +9,8 @@ fn main() {
     let contents: String = get_file_contents(inp_file_path);
     let contents: Vec<String> = split_strings(contents, "\n");
 
+    println!("-------------------- PART 1 --------------------");
     part1::solution(&contents);
+    println!("-------------------- PART 2 --------------------");
     part2::solution(&contents);
 }

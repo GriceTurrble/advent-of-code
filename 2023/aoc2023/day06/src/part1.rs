@@ -1,6 +1,5 @@
 /// Part 2 solution
 pub fn solution(contents: &Vec<String>) {
-    println!("-------------------- PART 1 --------------------");
     let mut cum_total: u32 = 1;
     let times: Vec<u32> = contents[0]
         .split_whitespace()
@@ -9,6 +8,8 @@ pub fn solution(contents: &Vec<String>) {
         .iter()
         .map(|s| s.parse().expect("Failed to parse numbers for times"))
         .collect();
+    println!("Times: {:?}", times);
+
     let distances: Vec<u32> = contents[1]
         .split_whitespace()
         .map(|s| s.to_string())
@@ -16,7 +17,6 @@ pub fn solution(contents: &Vec<String>) {
         .iter()
         .map(|s| s.parse().expect("Failed to parse numbers for times"))
         .collect();
-    println!("Times: {:?}", times);
     println!("Distances: {:?}", distances);
 
     for i in 0..times.len() {
