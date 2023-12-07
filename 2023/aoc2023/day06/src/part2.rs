@@ -1,5 +1,5 @@
 /// Part 2 solution
-pub fn solution(contents: &Vec<String>) {
+pub fn solution(contents: &Vec<&str>) {
     let (_, timing) = contents[0]
         .split_once(':')
         .expect("Failed to split the time string");

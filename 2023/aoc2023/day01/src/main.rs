@@ -1,5 +1,5 @@
 #![doc = include_str!("../README.md")]
-use lube::{get_file_contents, get_input_file_path, reverse_string, split_strings};
+use lube::{get_file_contents, get_input_file_path, reverse_str};
 use regex::Regex;
 
 /// For part 1, extract the first and last digits in the string.
@@ -26,12 +26,17 @@ fn extract_numbers_one(inp: &str) -> [i32; 2] {
 /// which handles cases where the "last" is something like "oneight", where the
 /// initial regex may only find "one" instead of the correct "eight" digit.
 fn extract_numbers_two(inp: &str) -> [i32; 2] {
-    let reverse_inp = reverse_string(inp);
-    let num_words: &str = "one|two|three|four|five|six|seven|eight|nine";
-    let pat_forward = format!("({}|\\d)", num_words);
-    let pat_reverse = format!("({}|\\d)", reverse_string(num_words));
-    let re_forward = Regex::new(pat_forward.as_str()).expect("Invalid regex pattern");
-    let re_reverse = Regex::new(pat_reverse.as_str()).expect("Invalid regex pattern");
+    let reverse_inp = reverse_str(inp);
+    let reverse_inp = reverse_inp.as_str();
+    let num_words = "one|two|three|four|five|six|seven|eight|nine";
+
+    let pat_forward = format!("({num_words}|\\d)");
+    let pat_forward = pat_forward.as_str();
+    let re_forward = Regex::new(pat_forward).expect("Invalid regex pattern");
+
+    let pat_reverse = format!("({}|\\d)", reverse_str(&num_words));
+    let pat_reverse = pat_reverse.as_str();
+    let re_reverse = Regex::new(pat_reverse).expect("Invalid regex pattern");
 
     let first = re_forward.find(inp).expect("No match found").as_str();
     let first = match first {
@@ -48,7 +53,7 @@ fn extract_numbers_two(inp: &str) -> [i32; 2] {
     };
 
     let last = re_reverse
-        .find(reverse_inp.as_str())
+        .find(reverse_inp)
         .expect("No match found")
         .as_str();
     let last = match last {
@@ -68,7 +73,7 @@ fn extract_numbers_two(inp: &str) -> [i32; 2] {
 }
 
 /// Performs the full method for part 1.
-fn part_one(contents: &Vec<String>) {
+fn part_one(contents: &Vec<&str>) {
     let mut total: i32 = 0;
     for content in contents {
         let [first, last] = extract_numbers_one(content);
@@ -81,7 +86,7 @@ fn part_one(contents: &Vec<String>) {
 }
 
 /// Performs the full method for part 2.
-fn part_two(contents: &Vec<String>) {
+fn part_two(contents: &Vec<&str>) {
     let mut total: i32 = 0;
     for content in contents {
         let [first, last] = extract_numbers_two(content);
@@ -95,8 +100,8 @@ fn part_two(contents: &Vec<String>) {
 
 fn main() {
     let inp_file_path: std::path::PathBuf = get_input_file_path();
-    let contents: String = get_file_contents(inp_file_path);
-    let contents: Vec<String> = split_strings(contents, "\n");
+    let contents = get_file_contents(inp_file_path);
+    let contents: Vec<&str> = contents.as_str().trim().split("\n").collect();
 
     println!("PART 1:");
     part_one(&contents);

@@ -1,7 +1,7 @@
 #![doc = include_str!("../README.md")]
 use std::collections::{HashSet, HashMap};
 
-use lube::{get_file_contents, get_input_file_path, split_strings};
+use lube::{get_file_contents, get_input_file_path};
 
 #[derive(Debug)]
 struct GameDetails {
@@ -12,8 +12,8 @@ struct GameDetails {
 
 fn main() {
     let inp_file_path: std::path::PathBuf = get_input_file_path();
-    let contents: String = get_file_contents(inp_file_path);
-    let contents: Vec<String> = split_strings(contents, "\n");
+    let contents = get_file_contents(inp_file_path);
+    let contents: Vec<&str> = contents.as_str().trim().split("\n").collect();
 
     println!("-------------------- PART 1 --------------------");
     part_one(&contents);
@@ -23,7 +23,7 @@ fn main() {
 }
 
 /// Part 1 solution
-fn part_one(_contents: &Vec<String>) {
+fn part_one(_contents: &Vec<&str>) {
     let mut total: u32 = 0;
     for line in _contents {
         let mut adder: u32 = 0;
@@ -38,7 +38,7 @@ fn part_one(_contents: &Vec<String>) {
     println!(">> {total}");
 }
 
-fn get_game_details(line: &String) -> GameDetails {
+fn get_game_details(line: &str) -> GameDetails {
     let (card_id, games) = line.split_once(':').expect("Failed to split the card IDs.");
     let card_id: u32 = (card_id
         .trim()
@@ -77,7 +77,7 @@ fn get_num_shared(details: &GameDetails) -> u32 {
 }
 
 /// Part 2 solution
-fn part_two(_contents: &Vec<String>) {
+fn part_two(_contents: &Vec<&str>) {
     let mut total: u32 = 0;
     let mut game_counts: HashMap<u32, u32> = HashMap::new();
     for line in _contents {

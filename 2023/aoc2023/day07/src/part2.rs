@@ -9,7 +9,7 @@ struct CardData {
 }
 
 /// Part 1 solution
-pub fn solution(contents: &Vec<String>) {
+pub fn solution(contents: &Vec<&str>) {
     let mut card_data: Vec<CardData> = Vec::new();
     for line in contents {
         let (cards, bid) = line.trim().split_once(' ').expect("Failed to split the things");

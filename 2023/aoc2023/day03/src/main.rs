@@ -1,12 +1,12 @@
 #![doc = include_str!("../README.md")]
-use lube::{get_file_contents, get_input_file_path, split_strings};
+use lube::{get_file_contents, get_input_file_path};
 use regex::Regex;
 use std::cmp;
 use std::collections::HashMap;
 use std::ops::Range;
 use substring::Substring;
 
-fn is_a_part_num(rows: &[String], colrange: &Range<usize>) -> bool {
+fn is_a_part_num(rows: &[&str], colrange: &Range<usize>) -> bool {
     let re: Regex = Regex::new(r"[^\d\.]").expect("Failed to parse partnum regex");
     for substr in rows.iter().map(|r| {
         String::from(r.substring(
@@ -22,7 +22,7 @@ fn is_a_part_num(rows: &[String], colrange: &Range<usize>) -> bool {
 }
 
 fn find_gear_point(
-    _contents: &Vec<String>,
+    _contents: &Vec<&str>,
     rowrange: Range<usize>,
     colrange: Range<usize>,
 ) -> Option<(usize, usize)> {
@@ -39,7 +39,7 @@ fn find_gear_point(
 }
 
 /// Part 1 solution
-fn part_one(_contents: &Vec<String>) {
+fn part_one(_contents: &Vec<&str>) {
     let mut total: i32 = 0;
     let re: Regex = Regex::new(r"\d+").expect("Failed to parse numbers pattern");
     for (line_num, line) in _contents.iter().enumerate() {
@@ -47,7 +47,7 @@ fn part_one(_contents: &Vec<String>) {
             start: cmp::max((line_num as i32) - 1, 0) as usize,
             end: cmp::min((line_num as i32) + 2, (_contents.len() as i32) - 1) as usize,
         };
-        let content_rows: &[String] = &_contents[rowrange];
+        let content_rows: &[&str] = &_contents[rowrange];
         let matches: Vec<(i32, Range<usize>)> = re
             .find_iter(line)
             .map(|m| {
@@ -68,7 +68,7 @@ fn part_one(_contents: &Vec<String>) {
 }
 
 /// Part 2 solution
-fn part_two(_contents: &Vec<String>) {
+fn part_two(_contents: &Vec<&str>) {
     // our running total for the solution
     let mut total: i32 = 0;
     // hash map of points where the gears are located.
@@ -112,8 +112,8 @@ fn part_two(_contents: &Vec<String>) {
 
 fn main() {
     let inp_file_path: std::path::PathBuf = get_input_file_path();
-    let contents: String = get_file_contents(inp_file_path);
-    let contents: Vec<String> = split_strings(contents, "\n");
+    let contents = get_file_contents(inp_file_path);
+    let contents: Vec<&str> = contents.as_str().trim().split("\n").collect();
 
     println!("-------------------- PART 1 --------------------");
     part_one(&contents);

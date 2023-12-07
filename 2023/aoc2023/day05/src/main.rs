@@ -3,7 +3,7 @@ use std::{cmp, ops::Range};
 // Adds the `.collect_tuple()` feature
 use itertools::Itertools;
 
-use lube::{get_file_contents, get_input_file_path, split_strings};
+use lube::{get_file_contents, get_input_file_path};
 
 #[derive(Debug)]
 struct SeedMap {
@@ -14,9 +14,9 @@ struct SeedMap {
 
 fn main() {
     let inp_file_path: std::path::PathBuf = get_input_file_path();
-    let contents: String = get_file_contents(inp_file_path);
+    let contents = get_file_contents(inp_file_path);
     // Separate by two newlines to get the maps as whole strings
-    let segments: Vec<String> = split_strings(contents, "\n\n");
+    let segments: Vec<&str> = contents.as_str().trim().split("\n\n").collect();
 
     println!("-------------------- PART 1 --------------------");
     part_one(&segments);
@@ -25,7 +25,7 @@ fn main() {
     println!("--------------------  DONE  --------------------");
 }
 
-fn get_seed_numbers_one(seed_section: &String) -> Vec<i64> {
+fn get_seed_numbers_one(seed_section: &str) -> Vec<i64> {
     let seeds: Vec<i64> = seed_section
         .split_once(':')
         .expect("Failed to split the seed nums")
@@ -37,7 +37,7 @@ fn get_seed_numbers_one(seed_section: &String) -> Vec<i64> {
     seeds
 }
 
-fn get_mapping(section: &String) -> Result<Vec<SeedMap>, Box<dyn std::error::Error>> {
+fn get_mapping(section: &str) -> Result<Vec<SeedMap>, Box<dyn std::error::Error>> {
     let mut maps: Vec<SeedMap> = Vec::new();
     let (name, numbers) = section.trim().split_once("\n").expect("Failed to split");
     for numset in numbers.trim().split('\n') {
@@ -60,7 +60,7 @@ fn get_mapping(section: &String) -> Result<Vec<SeedMap>, Box<dyn std::error::Err
 }
 
 /// Part 1 solution
-fn part_one(_contents: &Vec<String>) {
+fn part_one(_contents: &Vec<&str>) {
     let seeds: Vec<i64> = get_seed_numbers_one(&_contents[0]);
     let mut maps: Vec<Vec<SeedMap>> = Vec::new();
     for section in &_contents[1..] {
@@ -86,7 +86,7 @@ fn part_one(_contents: &Vec<String>) {
     println!(">> {final_result}");
 }
 
-fn get_seed_numbers_two(seed_section: &String) -> Vec<Range<i64>> {
+fn get_seed_numbers_two(seed_section: &str) -> Vec<Range<i64>> {
     let mut seed_ranges: Vec<Range<i64>> = Vec::new();
     let seeds: Vec<i64> = seed_section
         .split_once(':')
@@ -105,7 +105,7 @@ fn get_seed_numbers_two(seed_section: &String) -> Vec<Range<i64>> {
 }
 
 /// Part 2 solution
-fn part_two(_contents: &Vec<String>) {
+fn part_two(_contents: &Vec<&str>) {
     let seed_ranges: Vec<Range<i64>> = get_seed_numbers_two(&_contents[0]);
     let mut maps: Vec<Vec<SeedMap>> = Vec::new();
     for section in &_contents[1..] {

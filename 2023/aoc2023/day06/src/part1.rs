@@ -1,5 +1,5 @@
 /// Part 2 solution
-pub fn solution(contents: &Vec<String>) {
+pub fn solution(contents: &Vec<&str>) {
     let mut cum_total: u32 = 1;
     let times: Vec<u32> = contents[0]
         .split_whitespace()

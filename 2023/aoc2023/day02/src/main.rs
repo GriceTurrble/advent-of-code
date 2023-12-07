@@ -1,5 +1,5 @@
 #![doc = include_str!("../README.md")]
-use lube::{get_file_contents, get_input_file_path, split_strings};
+use lube::{get_file_contents, get_input_file_path};
 use std::cmp;
 use std::collections::HashMap;
 
@@ -22,7 +22,7 @@ fn get_game_max_colors(details: &str) -> HashMap<&str, i32> {
 }
 
 /// Part 1 solution
-fn part_one(contents: &Vec<String>) {
+fn part_one(contents: &Vec<&str>) {
     let mut solution: i32 = 0;
     let possible_rgb: HashMap<&str, i32> =
         HashMap::from([("red", 12), ("green", 13), ("blue", 14)]);
@@ -49,7 +49,7 @@ fn part_one(contents: &Vec<String>) {
 }
 
 /// Part 2 solution
-fn part_two(contents: &Vec<String>) {
+fn part_two(contents: &Vec<&str>) {
     let mut solution: i32 = 0;
     for content in contents {
         let (_, details) = content.split_once(':').expect("Failed to split this game");
@@ -62,8 +62,9 @@ fn part_two(contents: &Vec<String>) {
 
 fn main() {
     let inp_file_path: std::path::PathBuf = get_input_file_path();
-    let contents: String = get_file_contents(inp_file_path);
-    let contents: Vec<String> = split_strings(contents, "\n");
+    let contents = get_file_contents(inp_file_path);
+    let contents = contents.as_str();
+    let contents: Vec<&str> = contents.trim().split("\n").collect();
 
     println!("PART 1:");
     part_one(&contents);
