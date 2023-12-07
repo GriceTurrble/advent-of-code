@@ -14,7 +14,7 @@ pub fn solution(contents: &Vec<String>) {
     for line in contents {
         let (cards, bid) = line.trim().split_once(' ').expect("Failed to split the things");
         let bid: u32 = bid.parse().expect("Failed to parse bid number.");
-        let hand_type = classify_card(cards);
+        let hand_type: u8 = classify_card(cards);
         card_data.push(CardData {
             _cards: cards.to_string(),
             _hand_type: hand_type,
@@ -28,7 +28,6 @@ pub fn solution(contents: &Vec<String>) {
         total += ((idx as u64) + 1) * (data.bid as u64);
     }
     println!(">> {total}");
-    // println!("{:?} :: {:?} :: {:?}", cards, bid, hand_type);
 }
 
 fn classify_card(cards: &str) -> u8 {
