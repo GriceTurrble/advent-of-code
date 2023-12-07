@@ -59,6 +59,13 @@ pub fn kata_accum(s: &str) -> String {
         .join("-")
 }
 
+pub fn kata_count_sheep(sheep: &[bool]) -> u8 {
+    // Original: convert the bools to `u8` and `sum()` them
+    //   sheep.iter().map(|s| *s as u8).sum()
+    // Preferred: filter by `true` values and `.count()` them as `u8` :+1:
+    sheep.iter().filter(|&&x| x).count() as u8
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -109,5 +116,12 @@ mod tests {
             kata_accum("HbideVbxncC"),
             "H-Bb-Iii-Dddd-Eeeee-Vvvvvv-Bbbbbbb-Xxxxxxxx-Nnnnnnnnn-Cccccccccc-Ccccccccccc"
         );
+    }
+
+    #[test]
+    fn test_kata_count_sheep() {
+        assert_eq!(kata_count_sheep(&[false]), 0);
+        assert_eq!(kata_count_sheep(&[true]), 1);
+        assert_eq!(kata_count_sheep(&[true, false]), 1);
     }
 }
