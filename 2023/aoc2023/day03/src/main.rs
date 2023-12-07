@@ -4,7 +4,24 @@ use regex::Regex;
 use std::cmp;
 use std::collections::HashMap;
 use std::ops::Range;
+use std::time::Instant;
 use substring::Substring;
+
+fn main() {
+    let inp_file_path: std::path::PathBuf = get_input_file_path();
+    let contents = get_file_contents(inp_file_path);
+    let contents: Vec<&str> = contents.as_str().trim().split("\n").collect();
+
+    println!("-------------------- PART 1 --------------------");
+    let part1start = Instant::now();
+    part_one(&contents);
+    println!("   [{} μs]", part1start.elapsed().as_micros());
+
+    println!("-------------------- PART 2 --------------------");
+    let part2start = Instant::now();
+    part_two(&contents);
+    println!("   [{} μs]", part2start.elapsed().as_micros());
+}
 
 fn is_a_part_num(rows: &[&str], colrange: &Range<usize>) -> bool {
     let re: Regex = Regex::new(r"[^\d\.]").expect("Failed to parse partnum regex");
@@ -108,16 +125,4 @@ fn part_two(_contents: &Vec<&str>) {
     }
     // println!("{:?}", gear_points);
     println!(">> {total}");
-}
-
-fn main() {
-    let inp_file_path: std::path::PathBuf = get_input_file_path();
-    let contents = get_file_contents(inp_file_path);
-    let contents: Vec<&str> = contents.as_str().trim().split("\n").collect();
-
-    println!("-------------------- PART 1 --------------------");
-    part_one(&contents);
-    println!("-------------------- PART 2 --------------------");
-    part_two(&contents);
-    println!("--------------------  DONE  --------------------");
 }

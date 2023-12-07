@@ -1,4 +1,5 @@
 #![doc = include_str!("../README.md")]
+use std::time::Instant;
 use std::{cmp, ops::Range};
 // Adds the `.collect_tuple()` feature
 use itertools::Itertools;
@@ -19,10 +20,14 @@ fn main() {
     let segments: Vec<&str> = contents.as_str().trim().split("\n\n").collect();
 
     println!("-------------------- PART 1 --------------------");
+    let part1start = Instant::now();
     part_one(&segments);
+    println!("   [{} μs]", part1start.elapsed().as_micros());
+
     println!("-------------------- PART 2 --------------------");
+    let part2start = Instant::now();
     part_two(&segments);
-    println!("--------------------  DONE  --------------------");
+    println!("   [{} μs]", part2start.elapsed().as_micros());
 }
 
 fn get_seed_numbers_one(seed_section: &str) -> Vec<i64> {

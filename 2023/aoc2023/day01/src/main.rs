@@ -1,6 +1,24 @@
 #![doc = include_str!("../README.md")]
+use std::time::Instant;
+
 use lube::{get_file_contents, get_input_file_path, reverse_str};
 use regex::Regex;
+
+fn main() {
+    let inp_file_path: std::path::PathBuf = get_input_file_path();
+    let contents = get_file_contents(inp_file_path);
+    let contents: Vec<&str> = contents.as_str().trim().split("\n").collect();
+
+    println!("-------------------- PART 1 --------------------");
+    let part1start = Instant::now();
+    part_one(&contents);
+    println!("   [{} μs]", part1start.elapsed().as_micros());
+
+    println!("-------------------- PART 2 --------------------");
+    let part2start = Instant::now();
+    part_two(&contents);
+    println!("   [{} μs]", part2start.elapsed().as_micros());
+}
 
 /// For part 1, extract the first and last digits in the string.
 fn extract_numbers_one(inp: &str) -> [i32; 2] {
@@ -96,16 +114,4 @@ fn part_two(contents: &Vec<&str>) {
         total += real;
     }
     println!(">> {total}");
-}
-
-fn main() {
-    let inp_file_path: std::path::PathBuf = get_input_file_path();
-    let contents = get_file_contents(inp_file_path);
-    let contents: Vec<&str> = contents.as_str().trim().split("\n").collect();
-
-    println!("PART 1:");
-    part_one(&contents);
-    println!("PART 2:");
-    part_two(&contents);
-    println!("DONE");
 }

@@ -1,5 +1,6 @@
 #![doc = include_str!("../README.md")]
-use std::collections::{HashSet, HashMap};
+use std::collections::{HashMap, HashSet};
+use std::time::Instant;
 
 use lube::{get_file_contents, get_input_file_path};
 
@@ -16,10 +17,14 @@ fn main() {
     let contents: Vec<&str> = contents.as_str().trim().split("\n").collect();
 
     println!("-------------------- PART 1 --------------------");
+    let part1start = Instant::now();
     part_one(&contents);
+    println!("   [{} μs]", part1start.elapsed().as_micros());
+
     println!("-------------------- PART 2 --------------------");
+    let part2start = Instant::now();
     part_two(&contents);
-    println!("--------------------  DONE  --------------------");
+    println!("   [{} μs]", part2start.elapsed().as_micros());
 }
 
 /// Part 1 solution
@@ -71,7 +76,10 @@ fn get_game_details(line: &str) -> GameDetails {
 }
 
 fn get_num_shared(details: &GameDetails) -> u32 {
-    let shared_nums: HashSet<_> = details.game_nums.intersection(&details.winning_nums).collect();
+    let shared_nums: HashSet<_> = details
+        .game_nums
+        .intersection(&details.winning_nums)
+        .collect();
     let num_shared: usize = shared_nums.len();
     num_shared as u32
 }

@@ -1,7 +1,26 @@
 #![doc = include_str!("../README.md")]
-use lube::{get_file_contents, get_input_file_path};
 use std::cmp;
 use std::collections::HashMap;
+use std::time::Instant;
+
+use lube::{get_file_contents, get_input_file_path};
+
+fn main() {
+    let inp_file_path: std::path::PathBuf = get_input_file_path();
+    let contents = get_file_contents(inp_file_path);
+    let contents = contents.as_str();
+    let contents: Vec<&str> = contents.trim().split("\n").collect();
+
+    println!("-------------------- PART 1 --------------------");
+    let part1start = Instant::now();
+    part_one(&contents);
+    println!("   [{} μs]", part1start.elapsed().as_micros());
+
+    println!("-------------------- PART 2 --------------------");
+    let part2start = Instant::now();
+    part_two(&contents);
+    println!("   [{} μs]", part2start.elapsed().as_micros());
+}
 
 fn get_game_max_colors(details: &str) -> HashMap<&str, i32> {
     let mut max_colors: HashMap<&str, i32> = HashMap::from([("red", 0), ("green", 0), ("blue", 0)]);
@@ -58,17 +77,4 @@ fn part_two(contents: &Vec<&str>) {
         solution += power;
     }
     println!(">> {solution}");
-}
-
-fn main() {
-    let inp_file_path: std::path::PathBuf = get_input_file_path();
-    let contents = get_file_contents(inp_file_path);
-    let contents = contents.as_str();
-    let contents: Vec<&str> = contents.trim().split("\n").collect();
-
-    println!("PART 1:");
-    part_one(&contents);
-    println!("PART 2:");
-    part_two(&contents);
-    println!("DONE");
 }
