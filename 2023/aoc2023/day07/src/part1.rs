@@ -36,28 +36,28 @@ fn classify_card(cards: &str) -> u8 {
         *val += 1;
     }
     // Pull the values of the HashMap as a sorted vec of strings.
-    let mut simplified: Vec<String> = mapping.iter().map(|(_,v)| v.to_string()).collect();
+    let mut simplified: Vec<u8> = mapping.iter().map(|(_,v)| *v).collect();
     simplified.sort();
     // Join the sorted strings into one, then match them up to the classifications.
     // For example, if all cards match, a single value of 5 should be present, representing "Five of a kind".
     // Distinct values would show up as `1`, pairs as a `2`, etc.
     // All combinations below should always add up to 5, of course.
     // Each is assigned a simple int value to aid in ordering later.
-    match simplified.join("").as_str() {
+    match simplified[..] {
         // Five of a kind: all cards are the same
-        "5" => 7,
+        [5] => 7,
         // Four of a kind: 4 cards are the same, one is different
-        "14" => 6,
+        [1, 4] => 6,
         // Full house: 3 are the same, 2 are a second type
-        "23" => 5,
+        [2, 3] => 5,
         // Three of a kind: 3 are the same, the other 2 are both distinct
-        "113" => 4,
+        [1, 1, 3] => 4,
         // Two pair: 2 are one type, 2 are another type, and the final is a distinct third type
-        "122" => 3,
+        [1, 2, 2] => 3,
         // One pair: 2 are one type, the remaining 3 are all distinct types.
-        "1112" => 2,
+        [1, 1, 1, 2] => 2,
         // High card: all cards are distinct
-        "11111" => 1,
+        [1, 1, 1, 1, 1] => 1,
         // Should not hit the default case, but it's there.
         _ => 0,
     }
