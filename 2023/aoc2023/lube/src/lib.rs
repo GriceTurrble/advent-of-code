@@ -66,6 +66,26 @@ pub fn kata_count_sheep(sheep: &[bool]) -> u8 {
     sheep.iter().filter(|&&x| x).count() as u8
 }
 
+pub fn kata_positive_sum(slice: &[i32]) -> i32 {
+    slice.iter().filter(|x| x.is_positive()).sum()
+}
+
+/// Kata: https://www.codewars.com/kata/515e271a311df0350d00000f/train/rust
+pub fn kata_square_sum(vec: Vec<i32>) -> i32 {
+    vec.iter().map(|x| x.pow(2)).sum()
+}
+
+/// Kata: https://www.codewars.com/kata/5467e4d82edf8bbf40000155/train/rust
+pub fn kata_descending_order(x: u64) -> u64 {
+    let mut result: Vec<char> = x
+        .to_string()
+        .chars()
+        .collect::<Vec<char>>();
+    result.sort_by(|a, b| b.cmp(a));
+    // Learned about this one. Easier to produce a string from some iterator this way than doing it manually (.iter().collect() etc.)
+    String::from_iter(result).parse::<u64>().unwrap()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -123,5 +143,32 @@ mod tests {
         assert_eq!(kata_count_sheep(&[false]), 0);
         assert_eq!(kata_count_sheep(&[true]), 1);
         assert_eq!(kata_count_sheep(&[true, false]), 1);
+    }
+
+    #[test]
+    fn test_kata_positive_sum() {
+        assert_eq!(kata_positive_sum(&[1,2,3,4,5]), 15);
+        assert_eq!(kata_positive_sum(&[1,-2,3,4,5]), 13);
+        assert_eq!(kata_positive_sum(&[-1,2,3,4,-5]), 9);
+        assert_eq!(kata_positive_sum(&[]), 0);
+    }
+
+    #[test]
+    fn test_kata_square_sum() {
+        assert_eq!(kata_square_sum(vec![1, 2]), 5);
+        assert_eq!(kata_square_sum(vec![-1, -2]), 5);
+        assert_eq!(kata_square_sum(vec![5, 3, 4]), 50);
+        assert_eq!(kata_square_sum(vec![]), 0);
+    }
+
+    #[test]
+    fn test_kata_descending_order() {
+        assert_eq!(kata_descending_order(0), 0);
+        assert_eq!(kata_descending_order(1), 1);
+        assert_eq!(kata_descending_order(15), 51);
+        assert_eq!(kata_descending_order(1021), 2110);
+        assert_eq!(kata_descending_order(123456789), 987654321);
+        assert_eq!(kata_descending_order(145263), 654321);
+        assert_eq!(kata_descending_order(1254859723), 9875543221);
     }
 }
