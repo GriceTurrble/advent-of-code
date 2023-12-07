@@ -1,8 +1,8 @@
 #[derive(Debug)]
 struct CardData {
-    cards: String,
+    _cards: String,
+    _hand_type: u8,
     bid: u32,
-    hand_type: u8,
     sort_key: String,
 }
 
@@ -14,9 +14,9 @@ pub fn solution(contents: &Vec<String>) {
         let bid: u32 = bid.parse().expect("Failed to parse bid number.");
         let hand_type = classify_card(cards);
         card_data.push(CardData {
-            cards: cards.to_string(),
+            _cards: cards.to_string(),
+            _hand_type: hand_type,
             bid,
-            hand_type,
             sort_key: format!("{}{}", hand_type, card_sort_str(cards))
         })
     }
