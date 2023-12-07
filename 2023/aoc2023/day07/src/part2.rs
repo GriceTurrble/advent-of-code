@@ -27,7 +27,6 @@ pub fn solution(contents: &Vec<String>) {
     for (idx, data) in card_data.iter().enumerate() {
         total += ((idx as u64) + 1) * (data.bid as u64);
     }
-    println!("{:?}", card_data);
     println!(">> {total}");
 }
 
