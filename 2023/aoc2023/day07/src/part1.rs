@@ -65,31 +65,31 @@ fn classify_card(cards: &str) -> u8 {
     }
 }
 
-/// Card sets cannot be sorted lexigraphically, so we need to recontextualize them so they are.
+/// Card sets cannot be sorted lexicographically, so we need to recontextualize them so they are.
 ///
-/// Ordering:
-///     A K Q J T 9 8 7 6 5 4 3 2
+/// Ordering (asc, weakest to strongest):
 ///
-/// Translate these to ordered letters:
+///     2 3 4 5 6 7 8 9 T J Q K A
+///
+/// And assign a letter to each:
+///
+///     2 3 4 5 6 7 8 9 T J Q K A
 ///     A B C D E F G H I J K L M
-///
-/// But reverse them for correct lexigraphical sort:
-///     M L K J I H G F E D C B A
 fn card_sort_str(cards: &str) -> String {
     let converted: String = cards.chars().map(|c| match c {
-        'A' => 'M',
-        'K' => 'L',
-        'Q' => 'K',
-        'J' => 'J',
-        'T' => 'I',
-        '9' => 'H',
-        '8' => 'G',
-        '7' => 'F',
-        '6' => 'E',
-        '5' => 'D',
-        '4' => 'C',
-        '3' => 'B',
         '2' => 'A',
+        '3' => 'B',
+        '4' => 'C',
+        '5' => 'D',
+        '6' => 'E',
+        '7' => 'F',
+        '8' => 'G',
+        '9' => 'H',
+        'T' => 'I',
+        'J' => 'J',
+        'Q' => 'K',
+        'K' => 'L',
+        'A' => 'M',
         _ => c,
     }).collect::<Vec<char>>().iter().collect();
     converted
