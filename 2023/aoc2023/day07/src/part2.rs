@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 #[derive(Debug)]
 struct CardData {
     _cards: String,
@@ -30,7 +32,7 @@ pub fn solution(contents: &Vec<String>) {
 }
 
 fn classify_card(cards: &str) -> u8 {
-    let mut mapping: std::collections::HashMap<char, u8> = std::collections::HashMap::new();
+    let mut mapping: HashMap<char, u8> = HashMap::new();
     for foo in cards.chars() {
         let val = mapping.entry(foo).or_insert(0);
         *val += 1;
