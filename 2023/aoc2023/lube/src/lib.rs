@@ -33,6 +33,32 @@ pub fn find_shortest_word(s: &str) -> u32 {
     s.split_whitespace().map(|w| w.len()).min().unwrap_or(0) as u32
 }
 
+pub fn accum(s: &str) -> String {
+    // Lesson learned:
+    //   String + &str works
+    //   String + String does not
+    // So a sample of c.to_string().to_uppercase() + c.to_string().to_lowercase().repeat(idx).as_str() works for simple concatenationF
+
+    // Below I changed the above concat to use `format!` macro, which works with either type and returns String.
+    // Working with a Vec of Strings that way seems most efficient.
+
+    // I think generally I'll use funcs that can accept string slices and manipulate them into String,
+    // then make a practice of converting back to `as_str()` in the calling context.
+    // Not nearly as pleasant as just returning exactly what I want,
+    // but works better with ownership and borrowing and whatnot.
+    s.chars()
+        .enumerate()
+        .map(|(idx, c)| {
+            format!(
+                "{}{}",
+                c.to_string().to_uppercase(),
+                c.to_string().to_lowercase().repeat(idx),
+            )
+        })
+        .collect::<Vec<String>>()
+        .join("-")
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -59,5 +85,29 @@ mod tests {
         for (teststr, expected) in stuff {
             assert_eq!(find_shortest_word(teststr), expected);
         }
+    }
+
+    #[test]
+    fn test_accum() {
+        assert_eq!(
+            accum("ZpglnRxqenU"),
+            "Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu"
+        );
+        assert_eq!(
+            accum("NyffsGeyylB"),
+            "N-Yy-Fff-Ffff-Sssss-Gggggg-Eeeeeee-Yyyyyyyy-Yyyyyyyyy-Llllllllll-Bbbbbbbbbbb"
+        );
+        assert_eq!(
+            accum("MjtkuBovqrU"),
+            "M-Jj-Ttt-Kkkk-Uuuuu-Bbbbbb-Ooooooo-Vvvvvvvv-Qqqqqqqqq-Rrrrrrrrrr-Uuuuuuuuuuu"
+        );
+        assert_eq!(
+            accum("EvidjUnokmM"),
+            "E-Vv-Iii-Dddd-Jjjjj-Uuuuuu-Nnnnnnn-Oooooooo-Kkkkkkkkk-Mmmmmmmmmm-Mmmmmmmmmmm"
+        );
+        assert_eq!(
+            accum("HbideVbxncC"),
+            "H-Bb-Iii-Dddd-Eeeee-Vvvvvv-Bbbbbbb-Xxxxxxxx-Nnnnnnnnn-Cccccccccc-Ccccccccccc"
+        );
     }
 }
