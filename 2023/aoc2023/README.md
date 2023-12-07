@@ -27,9 +27,19 @@ The day's code and other files should be fully scaffolded and ready to use. Add 
 
 To run the code, head to *this* directory (containing this README) and use `cargo run`. Specify the day with `-p` and a path to an input file:
 
-```bash
+```shell
 # sample data
 cargo run -p dayXX -- dayXX/sample.txt
 # inputs
 cargo run -p dayXX -- dayXX/input.txt
+```
+
+There are also `make` targets to make (sic) this easier:
+
+```shell
+# run using sample data for day 7
+make run_sample_07
+
+# run using inputs for day 16
+make run_16
 ```
