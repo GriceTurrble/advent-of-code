@@ -29,11 +29,11 @@ pub fn reverse_str(input: &str) -> String {
     reversed
 }
 
-pub fn find_shortest_word(s: &str) -> u32 {
+pub fn kata_find_shortest_word(s: &str) -> u32 {
     s.split_whitespace().map(|w| w.len()).min().unwrap_or(0) as u32
 }
 
-pub fn accum(s: &str) -> String {
+pub fn kata_accum(s: &str) -> String {
     // Lesson learned:
     //   String + &str works
     //   String + String does not
@@ -70,7 +70,7 @@ mod tests {
     }
 
     #[test]
-    fn test_find_shortest_word() {
+    fn test_kata_find_shortest_word() {
         let stuff: Vec<(&str, u32)> = vec![
             ("bitcoin take over the world maybe who knows perhaps", 3),
             (
@@ -83,30 +83,30 @@ mod tests {
             ("Let's travel abroad shall we", 2),
         ];
         for (teststr, expected) in stuff {
-            assert_eq!(find_shortest_word(teststr), expected);
+            assert_eq!(kata_find_shortest_word(teststr), expected);
         }
     }
 
     #[test]
-    fn test_accum() {
+    fn test_kata_accum() {
         assert_eq!(
-            accum("ZpglnRxqenU"),
+            kata_accum("ZpglnRxqenU"),
             "Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu"
         );
         assert_eq!(
-            accum("NyffsGeyylB"),
+            kata_accum("NyffsGeyylB"),
             "N-Yy-Fff-Ffff-Sssss-Gggggg-Eeeeeee-Yyyyyyyy-Yyyyyyyyy-Llllllllll-Bbbbbbbbbbb"
         );
         assert_eq!(
-            accum("MjtkuBovqrU"),
+            kata_accum("MjtkuBovqrU"),
             "M-Jj-Ttt-Kkkk-Uuuuu-Bbbbbb-Ooooooo-Vvvvvvvv-Qqqqqqqqq-Rrrrrrrrrr-Uuuuuuuuuuu"
         );
         assert_eq!(
-            accum("EvidjUnokmM"),
+            kata_accum("EvidjUnokmM"),
             "E-Vv-Iii-Dddd-Jjjjj-Uuuuuu-Nnnnnnn-Oooooooo-Kkkkkkkkk-Mmmmmmmmmm-Mmmmmmmmmmm"
         );
         assert_eq!(
-            accum("HbideVbxncC"),
+            kata_accum("HbideVbxncC"),
             "H-Bb-Iii-Dddd-Eeeee-Vvvvvv-Bbbbbbb-Xxxxxxxx-Nnnnnnnnn-Cccccccccc-Ccccccccccc"
         );
     }
