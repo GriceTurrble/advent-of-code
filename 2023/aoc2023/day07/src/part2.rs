@@ -92,7 +92,7 @@ fn classify_card(cards: &str) -> u8 {
 ///     J 2 3 4 5 6 7 8 9 T Q K A
 ///     A B C D E F G H I J K L M
 fn card_sort_str(cards: &str) -> String {
-    let converted: String = cards.chars().map(|c| match c {
+    cards.chars().map(|c| match c {
         'J' => 'A',
         '2' => 'B',
         '3' => 'C',
@@ -107,6 +107,5 @@ fn card_sort_str(cards: &str) -> String {
         'K' => 'L',
         'A' => 'M',
         _ => c,
-    }).collect::<Vec<char>>().iter().collect();
-    converted
+    }).collect::<Vec<char>>().iter().collect()
 }
