@@ -1,5 +1,5 @@
 /// Part 1 solution
-pub fn solution(contents: &Vec<&str>) {
+pub fn solution(contents: &Vec<&str>) -> &'static str {
     println!("Part 1 incomplete!");
     println!("{:?}", contents[0]);
     "XYZ"
