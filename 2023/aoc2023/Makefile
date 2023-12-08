@@ -10,3 +10,7 @@ run_release_%:
 .PHONY: run_%
 run_%:
 	cargo run -p day$* -- day$*/$(DATA).txt
+
+.PHONY: test_%
+test_%:
+	cargo test -p day$*
