@@ -13,11 +13,13 @@ fn main() {
 
     println!("-------------------- PART 1 --------------------");
     let part1start = Instant::now();
+    let result = part1::solution(&contents);
+    println!(">> {result}");
     println!("   [{} μs]", part1start.elapsed().as_micros());
-    part1::solution(&contents);
 
     println!("-------------------- PART 2 --------------------");
     let part2start = Instant::now();
-    part2::solution(&contents);
+    let result = part2::solution(&contents);
+    println!(">> {result}");
     println!("   [{} μs]", part2start.elapsed().as_micros());
 }
