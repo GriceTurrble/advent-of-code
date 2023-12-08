@@ -9,7 +9,7 @@ struct CardData {
 }
 
 /// Part 1 solution
-pub fn solution(contents: &Vec<&str>) {
+pub fn solution(contents: &Vec<&str>) -> u64 {
     let mut card_data: Vec<CardData> = Vec::new();
     for line in contents {
         let (cards, bid) = line.trim().split_once(' ').expect("Failed to split the things");
@@ -27,7 +27,7 @@ pub fn solution(contents: &Vec<&str>) {
     for (idx, data) in card_data.iter().enumerate() {
         total += ((idx as u64) + 1) * (data.bid as u64);
     }
-    println!(">> {total}");
+    total
 }
 
 fn classify_card(cards: &str) -> u8 {
@@ -91,4 +91,22 @@ fn card_sort_str(cards: &str) -> String {
         'A' => 'M',
         _ => c,
     }).collect::<Vec<char>>().iter().collect()
+}
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn get_sample_data() -> Vec<&'static str> {
+        let data = "32T3K 765\nT55J5 684\nKK677 28\nKTJJT 220\nQQQJA 483";
+        data.trim().split("\n").collect()
+    }
+
+    #[test]
+    fn test_solution() {
+        let result = solution(&get_sample_data());
+        let expected = 6440;
+        assert_eq!(result, expected);
+    }
 }

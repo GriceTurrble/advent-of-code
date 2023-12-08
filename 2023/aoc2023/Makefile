@@ -2,14 +2,11 @@
 newday:
 	cookiecutter template
 
-.PHONY: run_sample_%
-run_sample_%:
-	cargo run -p day$* -- day$*/sample.txt
-
 .PHONY: run_release_%
+DATA=input
 run_release_%:
-	cargo run -rp day$* -- day$*/input.txt
+	cargo run -rp day$* -- day$*/$(DATA).txt
 
 .PHONY: run_%
 run_%:
-	cargo run -p day$* -- day$*/input.txt
+	cargo run -p day$* -- day$*/$(DATA).txt
