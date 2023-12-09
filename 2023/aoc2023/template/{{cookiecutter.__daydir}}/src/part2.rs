@@ -5,19 +5,19 @@ pub fn solution(contents: &Vec<&str>) -> &'static str {
     "XYZ"
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+// #[cfg(test)]
+// mod tests {
+//     use super::*;
 
-    fn get_sample_data() -> Vec<&'static str> {
-        let data = "";
-        data.trim().split("\n").collect()
-    }
+//     fn get_sample_data() -> Vec<&'static str> {
+//         let data = "";
+//         data.trim().split("\n").collect()
+//     }
 
-    #[test]
-    fn test_solution() {
-        let result = solution(&get_sample_data());
-        let expected = "XYZ";
-        assert_eq!(result, expected);
-    }
-}
+//     #[test]
+//     fn test_solution() {
+//         let result = solution(&get_sample_data());
+//         let expected = "XYZ";
+//         assert_eq!(result, expected);
+//     }
+// }

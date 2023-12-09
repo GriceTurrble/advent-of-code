@@ -38,3 +38,4 @@ clap = { version = "4.4.11", features = ["derive"] }
 regex = "1.10.2"
 substring = "1.4.5"
 itertools = "0.12.0"
+num = "0.4.1"

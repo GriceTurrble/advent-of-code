@@ -12,5 +12,6 @@ run_%:
 	cargo run -p day$* -- day$*/$(DATA).txt
 
 .PHONY: test_%
+# add `-- --show-output` to the end to show prints from inside methods outside tests
 test_%:
 	cargo test -p day$*
