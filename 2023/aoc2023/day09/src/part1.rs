@@ -1,6 +1,5 @@
 /// Part 1 solution
 pub fn solution(contents: &Vec<&str>) -> i32 {
-    println!("{:?}", contents[0]);
     let mut total: i32 = 0;
     for line in contents {
         let nums: Vec<i32> = line.split_whitespace().map(|c| c.parse().unwrap()).collect();
