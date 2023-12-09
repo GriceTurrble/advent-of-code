@@ -13,3 +13,5 @@ On trying to get this running in a brute force manner, I realized this would tak
 At first folks were mentioning the Chinese Remainder Theorem, but that seemed too complicated to set up.
 
 I noticed someone mention LCM (Least Common Multiple), and gave that a shot. I just had to run the original method for one cycle for each starting point, count the number of steps for each, and progressively obtain the LCM of those step numbers (starting from `1` as a basis). Sure enough, that was the answer!
+
+I can't imagine if I'd tried to continue the process of brute forcing and actually ran `8_811_050_362_409` simulated steps to find the common end point. Yeesh! Though I hear through the grapevine that someone did so in 6 hours.
