@@ -1,5 +1,5 @@
 /// Part 2 solution
-pub fn solution(contents: &Vec<&str>) {
+pub fn solution(contents: &Vec<&str>) -> u32 {
     let mut cum_total: u32 = 1;
     let times: Vec<u32> = contents[0]
         .split_whitespace()
@@ -8,7 +8,6 @@ pub fn solution(contents: &Vec<&str>) {
         .iter()
         .map(|s| s.parse().expect("Failed to parse numbers for times"))
         .collect();
-    println!("Times: {:?}", times);
 
     let distances: Vec<u32> = contents[1]
         .split_whitespace()
@@ -17,7 +16,6 @@ pub fn solution(contents: &Vec<&str>) {
         .iter()
         .map(|s| s.parse().expect("Failed to parse numbers for times"))
         .collect();
-    println!("Distances: {:?}", distances);
 
     for i in 0..times.len() {
         let mut wins: u32 = 0;
@@ -34,5 +32,22 @@ pub fn solution(contents: &Vec<&str>) {
         }
         cum_total *= wins;
     }
-    println!(">> {cum_total} product of ways to win");
+    cum_total
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn get_sample_data() -> Vec<&'static str> {
+        let data = "Time:      7  15   30\nDistance:  9  40  200";
+        data.trim().split("\n").collect()
+    }
+
+    #[test]
+    fn test_solution() {
+        let result = solution(&get_sample_data());
+        let expected = 288;
+        assert_eq!(result, expected);
+    }
 }

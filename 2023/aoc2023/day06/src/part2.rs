@@ -1,5 +1,5 @@
 /// Part 2 solution
-pub fn solution(contents: &Vec<&str>) {
+pub fn solution(contents: &Vec<&str>) -> u32 {
     let (_, timing) = contents[0]
         .split_once(':')
         .expect("Failed to split the time string");
@@ -7,7 +7,6 @@ pub fn solution(contents: &Vec<&str>) {
         .replace(" ", "")
         .parse()
         .expect("Failed to parse number");
-    println!("Timing: {:?}", timing);
 
     let (_, distance) = contents[1]
         .split_once(':')
@@ -16,7 +15,6 @@ pub fn solution(contents: &Vec<&str>) {
         .replace(" ", "")
         .parse()
         .expect("Failed to parse number");
-    println!("Distance: {:?}", distance);
 
     let mut wins: u32 = 0;
     for speed in 1..timing {
@@ -26,6 +24,22 @@ pub fn solution(contents: &Vec<&str>) {
             wins += 1;
         }
     }
+    wins
+}
 
-    println!(">> {wins} ways to win");
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn get_sample_data() -> Vec<&'static str> {
+        let data = "Time:      7  15   30\nDistance:  9  40  200";
+        data.trim().split("\n").collect()
+    }
+
+    #[test]
+    fn test_solution() {
+        let result = solution(&get_sample_data());
+        let expected = 71503;
+        assert_eq!(result, expected);
+    }
 }
