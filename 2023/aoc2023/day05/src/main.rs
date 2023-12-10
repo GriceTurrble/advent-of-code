@@ -5,6 +5,7 @@ use lube::{get_file_contents, get_input_file_path};
 
 mod part1;
 mod part2;
+mod shared;
 
 
 fn main() {
