@@ -1,3 +1,5 @@
+[![2023 Rust checks](https://github.com/GriceTurrble/advent-of-code/actions/workflows/check-2023-rust.yaml/badge.svg)](https://github.com/GriceTurrble/advent-of-code/actions/workflows/check-2023-rust.yaml)
+
 # AoC 2023
 
 Doing it in **Rust** this year!
