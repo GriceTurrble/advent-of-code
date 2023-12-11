@@ -1,4 +1,4 @@
-name: Rust
+name: Build and Test 2023 Rust solutions
 
 on:
   push:
