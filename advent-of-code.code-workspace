@@ -11,6 +11,29 @@
   "settings": {
     "files.exclude": {
       "2023/": true
-    }
+    },
+		"files.trimFinalNewlines": true,
+		"files.insertFinalNewline": true,
+		"files.trimTrailingWhitespace": true,
+		"[jsonc]": {
+			"editor.quickSuggestions": {
+				"strings": true
+			},
+			"editor.suggest.insertMode": "replace",
+			"editor.tabSize": 2
+		},
+		"[json]": {
+			"editor.quickSuggestions": {
+				"strings": true
+			},
+			"editor.suggest.insertMode": "replace",
+			"editor.tabSize": 2
+		},
+		"[yaml]": {
+			"editor.insertSpaces": true,
+			"editor.tabSize": 2,
+			"editor.autoIndent": "advanced",
+			"diffEditor.ignoreTrimWhitespace": false
+		}
   }
 }
