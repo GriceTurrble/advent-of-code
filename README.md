@@ -1,3 +1,6 @@
+[![pre-commit](https://github.com/GriceTurrble/advent-of-code/actions/workflows/pre-commit.yaml/badge.svg)](https://github.com/GriceTurrble/advent-of-code/actions/workflows/pre-commit.yaml)
+
+
 # My Advent of Code answers
 
 My answers and code for the [Advent of Code](https://adventofcode.com/).
