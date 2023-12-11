@@ -11,9 +11,12 @@ run_release_%:
 run_%:
 	cargo run -p day$* -- day$*/$(DATA).txt
 
-.PHONY: test test_%
-test:
-	cargo test
+TESTARGS=
+.PHONY: test test_lib test_%
 # add `-- --show-output` to the end to show prints from inside methods outside tests
+test:
+	cargo test $(TESTARGS)
+test_lib:
+	cargo test -p lube $(TESTARGS)
 test_%:
-	cargo test -p day$*
+	cargo test -p day$* $(TESTARGS)
