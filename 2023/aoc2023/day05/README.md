@@ -77,6 +77,6 @@ cargo run -rp day05 -- day05/input.txt
 
 This got it to the right answer relatively fast, though not *really* that fast (still took about a minute to process).
 
-A better solution would have been something like what I see here: https://www.youtube.com/watch?v=NmxHw_bHhGM
+A better solution would have been something like what I see here: <https://www.youtube.com/watch?v=NmxHw_bHhGM>
 
 But, works for me for now! I'm sure I'll figure out the more clever/better solutions some other time. :)
