@@ -43,23 +43,23 @@ And once we calculate those final values in some collection, we just find the mi
 
 ### Challenges
 
-- Need to test a value's membership inside a set of ranges (map them?)
-- If we don't find a matching value in the source ranges, then the new value is the same as the original.
-- If we do find a matching range, calculate the new value using the stored diff.
-- Building the mappings shouldn't be too difficult. We need to split up our content by double newlines to identify different sections. We can then parse each section individually to build and return a `struct` containing the `range` and `diff` (I said HashMap at first; I thing it just makes more sense to make a small struct instead of reusing the thing, since we don't really need to perform lookups in the map).
+-   Need to test a value's membership inside a set of ranges (map them?)
+-   If we don't find a matching value in the source ranges, then the new value is the same as the original.
+-   If we do find a matching range, calculate the new value using the stored diff.
+-   Building the mappings shouldn't be too difficult. We need to split up our content by double newlines to identify different sections. We can then parse each section individually to build and return a `struct` containing the `range` and `diff` (I said HashMap at first; I thing it just makes more sense to make a small struct instead of reusing the thing, since we don't really need to perform lookups in the map).
 
-  ```rs
-  struct SeedMap {
-      source: std::ops::Range,
-      diff: i64,
-  }
-  ```
+    ```rs
+    struct SeedMap {
+        source: std::ops::Range,
+        diff: i64,
+    }
+    ```
 
-  Just a Vec of these structs should be enough. Have a function that returns this Vec given the string contents of the input and stuff.
+    Just a Vec of these structs should be enough. Have a function that returns this Vec given the string contents of the input and stuff.
 
-- I'll need to include a simpler func in the `lube` crate that returns the entire file contents, not the Vec of Strings as before.
+-   I'll need to include a simpler func in the `lube` crate that returns the entire file contents, not the Vec of Strings as before.
 
-  That or I can make a more specific utility that accepts a delimiter on which to split the contents, then refactor to use it in the other func (sounds like a winner to me).
+    That or I can make a more specific utility that accepts a delimiter on which to split the contents, then refactor to use it in the other func (sounds like a winner to me).
 
 ## Part 2
 
