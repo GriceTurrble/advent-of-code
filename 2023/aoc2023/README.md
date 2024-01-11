@@ -6,7 +6,7 @@ Doing it in **Rust** this year!
 
 ## Cargo workspace
 
-Docs: https://doc.rust-lang.org/book/ch14-03-cargo-workspaces.html
+Docs: <https://doc.rust-lang.org/book/ch14-03-cargo-workspaces.html>
 
 To add a new day to the workspace:
 
@@ -14,11 +14,11 @@ To add a new day to the workspace:
 2. Uncomment the target day.
 3. Navigate to *this* directory in terminal, then run `cookiecutter` with the included `template/`:
 
-   ```shell
-   cookiecutter template
-   ```
+    ```shell
+    cookiecutter template
+    ```
 
-   You will be asked for the `day`, just enter the number of that day (it will fail, correctly so, if you enter a day that already exists).
+    You will be asked for the `day`, just enter the number of that day (it will fail, correctly so, if you enter a day that already exists).
 
 4. Copy the day's samples and input to `sample.txt` and `input.txt` in the new directory, respectively.
 5. (Optional) add notes to the generated `README.md` for that day.
