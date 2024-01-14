@@ -6,11 +6,16 @@
 		{
       "name": "-- 2023",
 			"path": "2023/aoc2023"
+		},
+    {
+      "name": "-- scratchpad",
+			"path": "scratchpad"
 		}
 	],
   "settings": {
     "files.exclude": {
-      "2023/": true
+      "2023/": true,
+      "scratchpad/": true
     },
 		"files.trimFinalNewlines": true,
 		"files.insertFinalNewline": true,
