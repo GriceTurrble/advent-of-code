@@ -1,9 +1,10 @@
 [tool.poetry]
 name = "scratchpad"
 version = "0.1.0"
-description = ""
-authors = ["Your Name <you@example.com>"]
+description = "Scratchpad for random code"
+authors = ["Galen Rice <griceturrble@protonmail.com>"]
 readme = "README.md"
+packages = [{include = "scratchpad", from = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.12"
@@ -11,11 +12,12 @@ pandas = "^2.1.4"
 polars = "^0.20.4"
 numpy = "^1.26.3"
 
-
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.28.0"
-pytest = "^7.4.4"
 ipytest = "^0.13.3"
+pytest = "^7.4.4"
+pytest-randomly = "^3.15.0"
+
 
 [build-system]
 requires = ["poetry-core"]
