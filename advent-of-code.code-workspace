@@ -4,6 +4,17 @@
 			"path": "."
 		},
 		{
+      "name": "-- 2020",
+			"path": "2020/"
+		},
+    {
+      "name": "-- 2021",
+			"path": "2021/"
+		},{
+      "name": "-- 2022",
+			"path": "2022/"
+		},
+		{
       "name": "-- 2023",
 			"path": "2023/aoc2023"
 		},
@@ -14,6 +25,9 @@
 	],
   "settings": {
     "files.exclude": {
+      "2020/": true,
+      "2021/": true,
+      "2022/": true,
       "2023/": true,
       "scratchpad/": true
     },

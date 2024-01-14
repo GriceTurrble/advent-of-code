@@ -1,21 +1,23 @@
 [tool.poetry]
-name = "scratchpad"
+name = "griceturrble-advent-of-code-2022"
 version = "0.1.0"
-description = ""
-authors = ["Your Name <you@example.com>"]
-readme = "README.md"
+description = "GriceTurrble's Advent of Code solutions for 2022"
+authors = ["Galen Rice <griceturrble@protonmail.com>"]
+license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.10"
+networkx = "^3.2.1"
+numpy = "^1.26.3"
 pandas = "^2.1.4"
 polars = "^0.20.4"
-numpy = "^1.26.3"
 
 
 [tool.poetry.group.dev.dependencies]
-ipykernel = "^6.28.0"
 pytest = "^7.4.4"
+ipykernel = "^6.28.0"
 ipytest = "^0.13.3"
+
 
 [build-system]
 requires = ["poetry-core"]
