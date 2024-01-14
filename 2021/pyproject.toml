@@ -14,9 +14,10 @@ polars = "^0.20.4"
 
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^7.4.4"
 ipykernel = "^6.28.0"
 ipytest = "^0.13.3"
+pytest = "^7.4.4"
+pytest-randomly = "^3.15.0"
 
 
 [build-system]
