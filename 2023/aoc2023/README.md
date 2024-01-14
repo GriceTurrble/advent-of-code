@@ -12,7 +12,7 @@ To add a new day to the workspace:
 
 1.  Open [Cargo.toml](Cargo.toml) here in the folder root.
 2.  Uncomment the target day.
-3.  Navigate to *this* directory in terminal, then run `cookiecutter` with the included `template/`:
+3.  Navigate to _this_ directory in terminal, then run `cookiecutter` with the included `template/`:
 
     ```shell
     cookiecutter template
@@ -27,7 +27,7 @@ The day's code and other files should be fully scaffolded and ready to use. Add 
 
 ## Usage
 
-To run the code, head to *this* directory (containing this README) and use `cargo run`. Specify the day with `-p` and a path to an input file:
+To run the code, head to _this_ directory (containing this README) and use `cargo run`. Specify the day with `-p` and a path to an input file:
 
 ```shell
 # sample data

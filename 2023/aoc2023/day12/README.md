@@ -4,8 +4,8 @@ Link: <https://adventofcode.com/2023/day/12>
 
 ## Part 1
 
-*TBD*
+_TBD_
 
 ## Part 2
 
-*TBD*
+_TBD_

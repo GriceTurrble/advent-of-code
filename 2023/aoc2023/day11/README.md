@@ -4,7 +4,7 @@ Link: <https://adventofcode.com/2023/day/11>
 
 ## Part 1
 
-First and foremost we need a method for "expanding the universe", which is *probably* best done through just some mathematical equation after identifying those rows and columns, rather than actually adjusting the input grid. But where's the fun in that?
+First and foremost we need a method for "expanding the universe", which is _probably_ best done through just some mathematical equation after identifying those rows and columns, rather than actually adjusting the input grid. But where's the fun in that?
 
 It's a simple matter of `.clone()`ing and `.push()`ing something onto an existing vec, so handling rows is simple. Columns are less simple, of course, but we don't need to worry about them much: just transpose the grid and then perform the same push operation on the new "rows".
 

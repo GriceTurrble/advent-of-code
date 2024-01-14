@@ -1,5 +1,5 @@
 default_language_version:
-  python: python3.11
+  python: python3.12
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: "v4.5.0"
@@ -45,8 +45,7 @@ repos:
       - id: ruff
       - id: ruff-format
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: "v4.0.0-alpha.3"
+    rev: "v4.0.0-alpha.8"
     hooks:
       - id: prettier
-        entry: env PRETTIER_LEGACY_CI=1 prettier
         types: [markdown]
