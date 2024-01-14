@@ -140,6 +140,7 @@ cython_debug/
 # Custom
 .venv/
 .vscode/
+.python-version
 
 node_modules/
 .ruff_cache/
