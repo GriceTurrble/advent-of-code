@@ -1,58 +1,59 @@
 {
-	"folders": [
-		{
-			"path": "."
-		},
-		{
+  "folders": [
+    {
+      "path": ".",
+    },
+    {
       "name": "-- 2020",
-			"path": "2020/"
-		},
+      "path": "2020/",
+    },
     {
       "name": "-- 2021",
-			"path": "2021/"
-		},{
+      "path": "2021/",
+    },
+    {
       "name": "-- 2022",
-			"path": "2022/"
-		},
-		{
+      "path": "2022/",
+    },
+    {
       "name": "-- 2023",
-			"path": "2023/aoc2023"
-		},
+      "path": "2023/aoc2023",
+    },
     {
       "name": "-- scratchpad",
-			"path": "scratchpad"
-		}
-	],
+      "path": "scratchpad",
+    },
+  ],
   "settings": {
     "files.exclude": {
       "2020/": true,
       "2021/": true,
       "2022/": true,
       "2023/": true,
-      "scratchpad/": true
+      "scratchpad/": true,
     },
-		"files.trimFinalNewlines": true,
-		"files.insertFinalNewline": true,
-		"files.trimTrailingWhitespace": true,
-		"[jsonc]": {
-			"editor.quickSuggestions": {
-				"strings": true
-			},
-			"editor.suggest.insertMode": "replace",
-			"editor.tabSize": 2
-		},
-		"[json]": {
-			"editor.quickSuggestions": {
-				"strings": true
-			},
-			"editor.suggest.insertMode": "replace",
-			"editor.tabSize": 2
-		},
-		"[yaml]": {
-			"editor.insertSpaces": true,
-			"editor.tabSize": 2,
-			"editor.autoIndent": "advanced",
-			"diffEditor.ignoreTrimWhitespace": false
-		}
-  }
+    "files.trimFinalNewlines": true,
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "[jsonc]": {
+      "editor.quickSuggestions": {
+        "strings": true,
+      },
+      "editor.suggest.insertMode": "replace",
+      "editor.tabSize": 2,
+    },
+    "[json]": {
+      "editor.quickSuggestions": {
+        "strings": true,
+      },
+      "editor.suggest.insertMode": "replace",
+      "editor.tabSize": 2,
+    },
+    "[yaml]": {
+      "editor.insertSpaces": true,
+      "editor.tabSize": 2,
+      "editor.autoIndent": "advanced",
+      "diffEditor.ignoreTrimWhitespace": false,
+    },
+  },
 }
