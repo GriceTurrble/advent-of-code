@@ -8,12 +8,12 @@ packages = [{include = "scratchpad", from = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.12"
-pandas = "^2.1.4"
-polars = "^0.20.4"
+pandas = "^2.2.0"
+polars = "^0.20.5"
 numpy = "^1.26.3"
 
 [tool.poetry.group.dev.dependencies]
-ipykernel = "^6.28.0"
+ipykernel = "^6.29.0"
 ipytest = "^0.13.3"
 pytest = "^7.4.4"
 pytest-randomly = "^3.15.0"
