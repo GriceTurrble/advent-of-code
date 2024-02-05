@@ -9,7 +9,7 @@ packages = [{include = "scratchpad", from = "src"}]
 [tool.poetry.dependencies]
 python = "^3.12"
 pandas = "^2.2.0"
-polars = "^0.20.6"
+polars = "^0.20.7"
 numpy = "^1.26.3"
 
 [tool.poetry.group.dev.dependencies]
