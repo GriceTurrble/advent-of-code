@@ -34,7 +34,7 @@ authors = ["Galen Rice"]
 description = "Advent of Code 2023 solutions using Rust!"
 
 [workspace.dependencies]
-clap = { version = "4.5.1", features = ["derive"] }
+clap = { version = "4.5.2", features = ["derive"] }
 regex = "1.10.3"
 substring = "1.4.5"
 itertools = "0.12.1"
