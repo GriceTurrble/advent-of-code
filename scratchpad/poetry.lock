@@ -418,6 +418,7 @@ optional = false
 python-versions = ">=3.9"
 files = [
     {file = "pandas-2.2.2-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:90c6fca2acf139569e74e8781709dccb6fe25940488755716d1d354d6bc58bce"},
+    {file = "pandas-2.2.2-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:c7adfc142dac335d8c1e0dcbd37eb8617eac386596eb9e1a1b77791cf2498238"},
     {file = "pandas-2.2.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:4abfe0be0d7221be4f12552995e58723c7422c80a659da13ca382697de830c08"},
     {file = "pandas-2.2.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:8635c16bf3d99040fdf3ca3db669a7250ddf49c55dc4aa8fe0ae0fa8d6dcc1f0"},
     {file = "pandas-2.2.2-cp310-cp310-musllinux_1_1_aarch64.whl", hash = "sha256:40ae1dffb3967a52203105a077415a86044a2bea011b5f321c6aa64b379a3f51"},
@@ -438,6 +439,7 @@ files = [
     {file = "pandas-2.2.2-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:43498c0bdb43d55cb162cdc8c06fac328ccb5d2eabe3cadeb3529ae6f0517c32"},
     {file = "pandas-2.2.2-cp312-cp312-win_amd64.whl", hash = "sha256:d187d355ecec3629624fccb01d104da7d7f391db0311145817525281e2804d23"},
     {file = "pandas-2.2.2-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:0ca6377b8fca51815f382bd0b697a0814c8bda55115678cbc94c30aacbb6eff2"},
+    {file = "pandas-2.2.2-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:9057e6aa78a584bc93a13f0a9bf7e753a5e9770a30b4d758b8d5f2a62a9433cd"},
     {file = "pandas-2.2.2-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:001910ad31abc7bf06f49dcc903755d2f7f3a9186c0c040b827e522e9cef0863"},
     {file = "pandas-2.2.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:66b479b0bd07204e37583c191535505410daa8df638fd8e75ae1b383851fe921"},
     {file = "pandas-2.2.2-cp39-cp39-musllinux_1_1_aarch64.whl", hash = "sha256:a77e9d1c386196879aa5eb712e77461aaee433e54c68cf253053a73b7e49c33a"},
@@ -538,17 +540,17 @@ testing = ["pytest", "pytest-benchmark"]
 
 [[package]]
 name = "polars"
-version = "0.20.20"
+version = "0.20.21"
 description = "Blazingly fast DataFrame library"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "polars-0.20.20-cp38-abi3-macosx_10_12_x86_64.whl", hash = "sha256:04e57b2858e4279fe47e1fe960534a0e7a007f648622072964d941983c20842a"},
-    {file = "polars-0.20.20-cp38-abi3-macosx_11_0_arm64.whl", hash = "sha256:1f14a610247130b957f38b352c7f7cf1b92bd34f03e3f3f17bf82a44f1f3fd0f"},
-    {file = "polars-0.20.20-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:8a8ac46f0b0cc437111a9f3091e4d3dc11228c0439e7c9cd11bc3e74ed7b4a89"},
-    {file = "polars-0.20.20-cp38-abi3-manylinux_2_24_aarch64.whl", hash = "sha256:e8a0e358143c12a79d3606a4a5c73e8c986738af54cc8fba2bb272572193405e"},
-    {file = "polars-0.20.20-cp38-abi3-win_amd64.whl", hash = "sha256:12ac570d6a9052ae45492a70fbdd1a0d7ba18c05251c378cff9a07bc7178d145"},
-    {file = "polars-0.20.20.tar.gz", hash = "sha256:1f7cd9fe811ab449d9de8633f819b037045951330bfdbd9c642bdc327a74c1d7"},
+    {file = "polars-0.20.21-cp38-abi3-macosx_10_12_x86_64.whl", hash = "sha256:f1de9b7190111b0d6c3731157da26252697ba27f2eef201d01e121c6873e713e"},
+    {file = "polars-0.20.21-cp38-abi3-macosx_11_0_arm64.whl", hash = "sha256:18847d198cbdb133c35847d096f0b72783c9cc81df0878959dba60495a99a1c7"},
+    {file = "polars-0.20.21-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:32d5e7f5a1bf529ca0a3c14416a8802e746534c4220dc8af42b39ea4962e729a"},
+    {file = "polars-0.20.21-cp38-abi3-manylinux_2_24_aarch64.whl", hash = "sha256:f8196b42791ca6d1de9448e985f0d32d783166a43928bd294486fc37e1c78310"},
+    {file = "polars-0.20.21-cp38-abi3-win_amd64.whl", hash = "sha256:584d3fe8d14516de2d733b9a355ae27a1be943bb2d54e76826887a0e3e122ee3"},
+    {file = "polars-0.20.21.tar.gz", hash = "sha256:1ef8c44dc1a0dd79f3c1a6f73677cddac6e5aca3093cc9fb666f2e098f9b3bef"},
 ]
 
 [package.extras]
@@ -945,4 +947,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "8af75f6281e34db9aa5997674b0bbcd9f2b9c36cd005151ec0b84ebeb1d05f52"
+content-hash = "c86d17f493e34b4a768913546b61fb6f554e662176604ab0f971dbcea0fc9f5c"
