@@ -219,13 +219,13 @@ test = ["flaky", "ipyparallel", "pre-commit", "pytest (>=7.0)", "pytest-asyncio 
 
 [[package]]
 name = "ipytest"
-version = "0.14.0"
+version = "0.14.1"
 description = "Unit tests in IPython notebooks"
 optional = false
-python-versions = ">=3.8,<4"
+python-versions = "<4,>=3.8"
 files = [
-    {file = "ipytest-0.14.0-py3-none-any.whl", hash = "sha256:9fb8ee4cd22652dfd3b11a4c3f225e67575906e746a30a98c217cf22b631d8fc"},
-    {file = "ipytest-0.14.0.tar.gz", hash = "sha256:0aa3cd15d979d2ddc186f8ea184c24083ab7ab020b8fc71a73b2e5ffb5883a47"},
+    {file = "ipytest-0.14.1-py3-none-any.whl", hash = "sha256:63aa5216cd70fdccd662fe1c82d58767324981cc82a1c651604d5cc63bff111b"},
+    {file = "ipytest-0.14.1.tar.gz", hash = "sha256:1ef8ddbbd30cc1f4a30c52c04dae7f3de8972750143de4a3d86ae8348e85bd5b"},
 ]
 
 [package.dependencies]
@@ -947,4 +947,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "c86d17f493e34b4a768913546b61fb6f554e662176604ab0f971dbcea0fc9f5c"
+content-hash = "5b5887bdaedd9e6a1854b359a942e4caa611b93303b6e2c65f1393710a33201f"
