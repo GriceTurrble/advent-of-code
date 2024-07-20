@@ -549,17 +549,17 @@ testing = ["pytest", "pytest-benchmark"]
 
 [[package]]
 name = "polars"
-version = "1.2.0"
+version = "1.2.1"
 description = "Blazingly fast DataFrame library"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "polars-1.2.0-cp38-abi3-macosx_10_12_x86_64.whl", hash = "sha256:a6cea3aa0cb4a0cf1c4c4aa00c389d483072f347ef03c98c484d5c515da489f3"},
-    {file = "polars-1.2.0-cp38-abi3-macosx_11_0_arm64.whl", hash = "sha256:8ebccbc9211453785c90efee8fd9407d316343492b384ce2882b431a2090613a"},
-    {file = "polars-1.2.0-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:e0f5cff9d3dc96bdde914290df5f80768aaf881b4612c83ad1d9afd05c5934f2"},
-    {file = "polars-1.2.0-cp38-abi3-manylinux_2_24_aarch64.whl", hash = "sha256:4125b1c44773a30e388be734adf25b1979d7ded17801aceca3b62e85cd057364"},
-    {file = "polars-1.2.0-cp38-abi3-win_amd64.whl", hash = "sha256:df5cd43fdc6fb0b4e25987c1178633511e56dc5ee38afe0215daccf690bfe5ba"},
-    {file = "polars-1.2.0.tar.gz", hash = "sha256:d475f60a57d48b7737ef165f1bb145a1d506f784948aad1de284f359a61cf147"},
+    {file = "polars-1.2.1-cp38-abi3-macosx_10_12_x86_64.whl", hash = "sha256:baa5d1f032d7b82075cf926d40a4c6d74dd897cae9fa529f6bc1f68608db53e0"},
+    {file = "polars-1.2.1-cp38-abi3-macosx_11_0_arm64.whl", hash = "sha256:a113fe7e378044c621be329bedfaa19cb0d7fff4bb05642dc91bb9413e662b8f"},
+    {file = "polars-1.2.1-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:2094877da694bb59bfb7f5af50471955012b950068dc6f3ef5ecc41653a3b04f"},
+    {file = "polars-1.2.1-cp38-abi3-manylinux_2_24_aarch64.whl", hash = "sha256:d71f87f7ef9f4f4a1d52127399b1dae4a2622d528eea90f94912d92e0e9e3998"},
+    {file = "polars-1.2.1-cp38-abi3-win_amd64.whl", hash = "sha256:764c2701b8ca8a27dcd7f23c94ba9031aec4d392061dfa7d1c2fdcbfd132d6ba"},
+    {file = "polars-1.2.1.tar.gz", hash = "sha256:a46aba51acce7ecf85151f72d25ef2a3eeb5735d55f4b7cc69ec4a596e9fbefd"},
 ]
 
 [package.extras]
@@ -957,4 +957,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "ee7e544611a39a63ed245246bf0573ba6258b9bcfe08ff1539812384d2e4cf98"
+content-hash = "b6bf1c510676f23e5faccf2f175f4cd59a919439ea46b12ef885460e873cd69e"
