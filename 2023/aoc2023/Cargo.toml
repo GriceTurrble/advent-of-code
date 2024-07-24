@@ -37,5 +37,6 @@ description = "Advent of Code 2023 solutions using Rust!"
 clap = { version = "4.5.9", features = ["derive"] }
 regex = "1.10.5"
 substring = "1.4.5"
-itertools = "0.12.1"
+itertools = "0.13.0"
 num = "0.4.3"
+memoize = "0.4.2"
