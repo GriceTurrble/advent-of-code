@@ -35,7 +35,7 @@ description = "Advent of Code 2023 solutions using Rust!"
 
 [workspace.dependencies]
 clap = { version = "4.5.18", features = ["derive"] }
-regex = "1.10.6"
+regex = "1.11.0"
 substring = "1.4.5"
 itertools = "0.13.0"
 num = "0.4.3"
