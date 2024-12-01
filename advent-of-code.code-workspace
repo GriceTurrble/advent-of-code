@@ -20,6 +20,10 @@
       "path": "2023/aoc2023",
     },
     {
+      "name": "-- 2024",
+      "path": "2024",
+    },
+    {
       "name": "-- scratchpad",
       "path": "scratchpad",
     },
@@ -30,6 +34,7 @@
       "2021/": true,
       "2022/": true,
       "2023/": true,
+      "2024/": true,
       "scratchpad/": true,
     },
     "files.trimFinalNewlines": true,
