@@ -40,7 +40,7 @@ def part2(inputs: TextIOWrapper) -> int:
     return total
 
 
-def main():
+def main() -> None:
     with open(FILE) as f:
         print(f"PART 1: {part1(f)}")
 
