@@ -55,6 +55,7 @@ def _create_templates(day: int, path: Path) -> None:
 @cli.command()
 @click.argument("day", type=int)
 def create_day(day: int) -> None:
+    """Scaffold the files and pyproject.toml script for DAY."""
     day_path = DIR / f"day{day:0>2}"
     if day_path.exists():
         raise click.ClickException(f"Day {day} already exists at {day_path}")
