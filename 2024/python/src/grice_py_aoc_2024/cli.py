@@ -1,11 +1,11 @@
 from pathlib import Path
-import toml
 
 import click
+import toml
 
 DIR = Path(__file__).parent
-MAIN_PY_TEMPLATE = DIR / "main.py-tpl"
-TEST_PY_TEMPLATE = DIR / "test_day.py-tpl"
+MAIN_PY_TEMPLATE = DIR / "templates/main.py-tpl"
+TEST_PY_TEMPLATE = DIR / "templates/test_day.py-tpl"
 
 
 @click.group()
