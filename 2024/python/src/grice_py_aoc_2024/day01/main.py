@@ -1,9 +1,9 @@
 from __future__ import annotations
 
+import time
+import typing
 from collections import defaultdict
 from pathlib import Path
-import bisect
-import typing
 
 if typing.TYPE_CHECKING:
     from io import TextIOWrapper
@@ -17,10 +17,12 @@ def part1(inputs: TextIOWrapper) -> int:
     rights: list[int] = []
     for line in inputs:
         left, right = line.strip().split()
-        bisect.insort(lefts, int(left))
-        bisect.insort(rights, int(right))
+        lefts.append(int(left))
+        rights.append(int(right))
+    lefts.sort()
+    rights.sort()
 
-    for lnum, rnum in zip(lefts, rights):
+    for lnum, rnum in zip(lefts, rights, strict=False):
         total += abs(rnum - lnum)
     return total
 
@@ -41,11 +43,17 @@ def part2(inputs: TextIOWrapper) -> int:
 
 
 def main() -> None:
+    _start1 = time.perf_counter()
     with open(FILE) as f:
-        print(f"PART 1: {part1(f)}")
+        result1 = part1(f)
+    _delta1 = time.perf_counter() - _start1
+    print(f">> Part 1: {result1} ({_delta1:.6f}s)")
 
+    _start2 = time.perf_counter()
     with open(FILE) as f:
-        print(f"PART 2: {part2(f)}")
+        result2 = part2(f)
+    _delta2 = time.perf_counter() - _start2
+    print(f">> Part 2: {result2} ({_delta2:.6f}s)")
 
 
 if __name__ == "__main__":
