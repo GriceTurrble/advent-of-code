@@ -144,3 +144,4 @@ cython_debug/
 
 node_modules/
 .ruff_cache/
+.DS_Store
