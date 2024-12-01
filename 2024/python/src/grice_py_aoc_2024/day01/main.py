@@ -42,7 +42,7 @@ def part2(inputs: TextIOWrapper) -> int:
     return total
 
 
-def main():
+def main() -> None:
     _start1 = time.perf_counter()
     with open(FILE) as f:
         result1 = part1(f)
