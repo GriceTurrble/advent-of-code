@@ -1,0 +1,8 @@
+# Root justfile for AoC 2024
+
+mod py 'python/py.just'
+
+
+# Show these help docs
+help:
+    @just --list --unsorted --justfile {{ source_file() }}
