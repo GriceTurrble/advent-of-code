@@ -4,18 +4,20 @@ from pathlib import Path
 
 from .main import part1, part2
 
-TEST_FILE = Path(__file__).parent / "test_inputs.txt"
-RESULT_PART_1 = "Now it's done!"
-RESULT_PART_2 = "Now it's done!"
+DIR = Path(__file__).parent
+TEST_FILE_P1 = DIR / "test_inputs_p1.txt"
+TEST_FILE_P2 = DIR / "test_inputs_p2.txt"
+RESULT_PART_1 = 161
+RESULT_PART_2 = 48
 
 
 def test_part1():
-    with open(TEST_FILE) as f:
-        result = part1(f)
+    contents = TEST_FILE_P1.read_text()
+    result = part1(contents)
     assert result == RESULT_PART_1
 
 
 def test_part2():
-    with open(TEST_FILE) as f:
-        result = part2(f)
+    contents = TEST_FILE_P2.read_text()
+    result = part2(contents)
     assert result == RESULT_PART_2
