@@ -26,6 +26,7 @@ cli = "grice_py_aoc_2024.cli:cli"
 day01 = "grice_py_aoc_2024.day01.main:main"
 day02 = "grice_py_aoc_2024.day02.main:main"
 day03 = "grice_py_aoc_2024.day03.main:main"
+day04 = "grice_py_aoc_2024.day04.main:main"
 
 [tool.pytest.ini_options]
 addopts = "--verbose"

@@ -36,7 +36,8 @@ def _create_day_files(day: int) -> None:
     day_path.mkdir()
     (day_path / "__init__.py").touch()
     (day_path / "inputs.txt").touch()
-    (day_path / "test_inputs.txt").touch()
+    (day_path / "test_inputs_p1.txt").touch()
+    (day_path / "test_inputs_p2.txt").touch()
     _create_templates(day=day, path=day_path)
 
 
