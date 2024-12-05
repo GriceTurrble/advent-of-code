@@ -6,7 +6,7 @@ import toml
 DIR = Path(__file__).parent
 MAIN_PY_TEMPLATE = DIR / "templates/main.py-tpl"
 TEST_PY_TEMPLATE = DIR / "templates/test_day.py-tpl"
-INPUTS_DIR = DIR.parents[3] / "inputs"
+INPUTS_DIR = DIR.parents[2] / "inputs"
 TEST_INPUTS_DIR = INPUTS_DIR / "tests"
 
 
