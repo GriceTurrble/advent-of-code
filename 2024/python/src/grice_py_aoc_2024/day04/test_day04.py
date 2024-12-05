@@ -6,8 +6,8 @@ from .main import part1, part2
 
 TEST_FILE_P1 = Path(__file__).parent / "test_inputs_p1.txt"
 TEST_FILE_P2 = Path(__file__).parent / "test_inputs_p2.txt"
-EXPECTED_PART_1 = "Now it's done!"
-EXPECTED_PART_2 = "Now it's done!"
+EXPECTED_PART_1 = 18
+EXPECTED_PART_2 = 9
 
 
 def test_part1():
