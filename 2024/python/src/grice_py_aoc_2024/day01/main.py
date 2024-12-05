@@ -8,7 +8,8 @@ from pathlib import Path
 if typing.TYPE_CHECKING:
     from io import TextIOWrapper
 
-FILE = Path(__file__).parent / "inputs.txt"
+DIR = Path(__file__).parent
+FILE = DIR.parents[3] / "inputs" / f"{DIR.stem}.txt"
 
 
 def part1(inputs: TextIOWrapper) -> int:

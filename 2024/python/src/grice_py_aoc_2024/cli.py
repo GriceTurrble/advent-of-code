@@ -6,6 +6,8 @@ import toml
 DIR = Path(__file__).parent
 MAIN_PY_TEMPLATE = DIR / "templates/main.py-tpl"
 TEST_PY_TEMPLATE = DIR / "templates/test_day.py-tpl"
+INPUTS_DIR = DIR.parents[3] / "inputs"
+TEST_INPUTS_DIR = INPUTS_DIR / "tests"
 
 
 @click.group()
@@ -29,15 +31,15 @@ def _add_day_to_pyproject_toml(day: int) -> None:
 
 
 def _create_day_files(day: int) -> None:
-    day_path = DIR / f"day{day:0>2}"
+    day_str = f"day{day:0>2}"
+    day_path = DIR / day_str
     if day_path.exists():
         raise click.ClickException(f"Day {day} already exists at {day_path}")
 
     day_path.mkdir()
     (day_path / "__init__.py").touch()
-    (day_path / "inputs.txt").touch()
-    (day_path / "test_inputs_p1.txt").touch()
-    (day_path / "test_inputs_p2.txt").touch()
+    (INPUTS_DIR / f"{day_str}.txt").touch()
+    (TEST_INPUTS_DIR / f"test_{day_str}.txt").touch()
     _create_templates(day=day, path=day_path)
 
 

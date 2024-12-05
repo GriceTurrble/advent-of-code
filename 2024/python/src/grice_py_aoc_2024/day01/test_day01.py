@@ -4,7 +4,8 @@ from pathlib import Path
 
 from .main import part1, part2
 
-TEST_FILE = Path(__file__).parent / "test_inputs.txt"
+DIR = Path(__file__).parent
+TEST_FILE = DIR.parents[3] / "inputs/tests" / f"test_{DIR.stem}.txt"
 RESULT_PART_1 = 11
 RESULT_PART_2 = 31
 
