@@ -4,7 +4,8 @@ import re
 import time
 from pathlib import Path
 
-FILE = Path(__file__).parent / "inputs.txt"
+DIR = Path(__file__).parent
+FILE = DIR.parents[3] / "inputs" / f"{DIR.stem}.txt"
 
 
 def part1(contents: str) -> int:

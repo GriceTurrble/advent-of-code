@@ -4,7 +4,8 @@ import time
 from collections import defaultdict
 from pathlib import Path
 
-FILE = Path(__file__).parent / "inputs.txt"
+DIR = Path(__file__).parent
+FILE = DIR.parents[3] / "inputs" / f"{DIR.stem}.txt"
 
 TARGET = "XMAS"
 LEN_WORD = len(TARGET)
