@@ -4,21 +4,16 @@ version = "2024.12.1"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = [
-    "click>=8.1.7",
-    "httpx>=0.28.0",
-    "polars>=1.16.0",
-    "toml>=0.10.2",
-]
+dependencies = [ "click>=8.1.7", "httpx>=0.28.0", "polars>=1.16.0", "toml>=0.10.2",]
 [[project.authors]]
 name = "Galen Rice"
 email = "griceturrble@protonmail.com"
 
 [dependency-groups]
-dev = ["pytest>=8.3.4"]
+dev = [ "pytest>=8.3.4",]
 
 [build-system]
-requires = ["hatchling"]
+requires = [ "hatchling",]
 build-backend = "hatchling.build"
 
 [project.scripts]
@@ -27,6 +22,7 @@ day01 = "grice_py_aoc_2024.day01.main:main"
 day02 = "grice_py_aoc_2024.day02.main:main"
 day03 = "grice_py_aoc_2024.day03.main:main"
 day04 = "grice_py_aoc_2024.day04.main:main"
+day05 = "grice_py_aoc_2024.day05.main:main"
 
 [tool.pytest.ini_options]
 addopts = "--verbose"
