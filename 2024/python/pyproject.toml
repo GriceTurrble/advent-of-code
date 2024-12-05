@@ -23,6 +23,7 @@ day02 = "grice_py_aoc_2024.day02.main:main"
 day03 = "grice_py_aoc_2024.day03.main:main"
 day04 = "grice_py_aoc_2024.day04.main:main"
 day05 = "grice_py_aoc_2024.day05.main:main"
+day06 = "grice_py_aoc_2024.day06.main:main"
 
 [tool.pytest.ini_options]
 addopts = "--verbose"
