@@ -4,6 +4,7 @@
 help:
     @just --list --unsorted --justfile {{ source_file() }}
 
-# Generate files for a new day
+
+# Add new day for Python solutions
 new-day DAY:
     uv run cli create-day {{DAY}}
