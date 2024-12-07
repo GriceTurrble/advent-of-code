@@ -28,4 +28,4 @@ day07 = "grice_py_aoc_2024.day07.main:main"
 day08 = "grice_py_aoc_2024.day08.main:main"
 
 [tool.pytest.ini_options]
-addopts = "--verbose"
+addopts = "-ra -q"
