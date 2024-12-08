@@ -3,24 +3,12 @@ from __future__ import annotations
 import time
 from collections import defaultdict
 from pathlib import Path
-from typing import Protocol
 
 DIR = Path(__file__).parent
 FILE = DIR.parents[3] / "inputs" / f"{DIR.stem}.txt"
 
 CoordType = tuple[int, int]
 """Generic coordinate, 2-tuple of ints."""
-
-
-class CalcerType(Protocol):
-    """Protocol for a caculator func that can be passed to `num_antinodes` function."""
-
-    def __call__(
-        self,
-        grid: list[str],
-        c1: CoordType,
-        c2: CoordType,
-    ) -> set[CoordType]: ...
 
 
 def _calc_anti_nodes(
