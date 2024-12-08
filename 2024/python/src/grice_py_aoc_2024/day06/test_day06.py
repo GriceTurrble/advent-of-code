@@ -8,18 +8,17 @@ from .main import part1, part2
 
 DIR = Path(__file__).parent
 TEST_FILE = DIR.parents[3] / "inputs/tests" / f"test_{DIR.stem}.txt"
-EXPECTED_PART_1 = "REPLACE ME!"
-EXPECTED_PART_2 = "REPLACE ME!"
+EXPECTED_PART_1 = 41
+EXPECTED_PART_2 = 6
 
 
 def test_part1():
-    contents = TEST_FILE.read_text()
-    result = part1(contents)
+    grid = TEST_FILE.read_text().strip().split("\n")
+    result = part1(grid=grid)
     assert result == EXPECTED_PART_1
 
 
-@pytest.mark.xfail(reason=f"{DIR.stem} P1 incomplete")
 def test_part2():
-    contents = TEST_FILE.read_text()
-    result = part2(contents)
+    grid = TEST_FILE.read_text().strip().split("\n")
+    result = part2(grid=grid)
     assert result == EXPECTED_PART_2
