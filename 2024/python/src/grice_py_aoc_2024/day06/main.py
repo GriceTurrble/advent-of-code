@@ -73,6 +73,7 @@ def part1(grid: list[str]) -> int:
 
 
 def part2(grid: list[str]):
+    # TODO
     return "Not done yet!"
 
 
