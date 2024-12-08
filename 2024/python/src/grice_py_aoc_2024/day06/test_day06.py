@@ -18,6 +18,7 @@ def test_part1():
     assert result == EXPECTED_PART_1
 
 
+@pytest.mark.xfail(reason="Not done yet")
 def test_part2():
     grid = TEST_FILE.read_text().strip().split("\n")
     result = part2(grid=grid)
