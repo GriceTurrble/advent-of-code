@@ -16,7 +16,7 @@ def part2(contents: str):
 
 
 def main():
-    contents = FILE.read_text()
+    contents = FILE.read_text().strip()
 
     _start1 = time.perf_counter()
     result1 = part1(contents)
