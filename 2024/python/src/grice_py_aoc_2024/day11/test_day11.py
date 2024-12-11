@@ -12,6 +12,7 @@ EXPECTED_PART_1 = "REPLACE ME!"
 EXPECTED_PART_2 = "REPLACE ME!"
 
 
+@pytest.mark.skip(reason=f"{DIR.stem} P1 incomplete")
 def test_part1():
     contents = TEST_FILE.read_text()
     result = part1(contents)
