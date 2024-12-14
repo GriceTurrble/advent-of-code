@@ -12,13 +12,14 @@ EXPECTED_PART_1 = 123  # TODO replace!
 EXPECTED_PART_2 = 456  # TODO replace!
 
 
+@pytest.mark.skip(reason=f"{DIR.stem} P1 incomplete")
 def test_part1():
     contents = TEST_FILE.read_text()
     result = part1(contents=contents)
     assert result == EXPECTED_PART_1
 
 
-@pytest.mark.xfail(reason=f"{DIR.stem} P1 incomplete")
+@pytest.mark.skip(reason=f"{DIR.stem} P2 incomplete")
 def test_part2():
     contents = TEST_FILE.read_text()
     result = part2(contents=contents)
