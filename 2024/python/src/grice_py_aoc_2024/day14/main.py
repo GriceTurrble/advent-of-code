@@ -24,10 +24,10 @@ class Robot:
 
 
 def display_grid(positions: list[IntPair], grid_size: IntPair) -> None:
-    grid = [["_"] * grid_size[1] for _ in range(grid_size[0])]
+    grid = [["_"] * grid_size[0] for _ in range(grid_size[1])]
     for posx, posy in positions:
         try:
-            grid[posx][posy] = "█"
+            grid[posy][posx] = "█"
         except IndexError:
             print(f"{posx=}, {posy=}")
             raise
