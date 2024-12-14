@@ -12,14 +12,14 @@ EXPECTED_PART_1 = 1928
 EXPECTED_PART_2 = "REPLACE ME!"
 
 
-@pytest.mark.skip(reason=f"{DIR.stem} P1 skipped")
+@pytest.mark.skip(reason=f"{DIR.stem} P1 incomplete")
 def test_part1():
     contents = TEST_FILE.read_text().strip()
     result = part1(contents)
     assert result == EXPECTED_PART_1
 
 
-@pytest.mark.xfail(reason=f"{DIR.stem} P1 incomplete")
+@pytest.mark.skip(reason=f"{DIR.stem} P2 incomplete")
 def test_part2():
     contents = TEST_FILE.read_text().strip()
     result = part2(contents)

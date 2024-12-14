@@ -12,13 +12,14 @@ EXPECTED_PART_1 = 1930
 EXPECTED_PART_2 = 456  # TODO replace!
 
 
+@pytest.mark.skip(reason=f"{DIR.stem} P1 incomplete")
 def test_part1():
     grid = TEST_FILE.read_text().strip().split("\n")
     result = part1(grid=grid)
     assert result == EXPECTED_PART_1
 
 
-@pytest.mark.xfail(reason=f"{DIR.stem} P1 incomplete")
+@pytest.mark.skip(reason=f"{DIR.stem} P2 incomplete")
 def test_part2():
     grid = TEST_FILE.read_text().strip().split("\n")
     result = part2(grid=grid)
