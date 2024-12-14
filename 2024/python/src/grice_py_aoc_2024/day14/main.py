@@ -26,11 +26,9 @@ class Robot:
 def display_grid(positions: list[IntPair], grid_size: IntPair) -> None:
     grid = [["_"] * grid_size[0] for _ in range(grid_size[1])]
     for posx, posy in positions:
-        try:
-            grid[posy][posx] = "█"
-        except IndexError:
-            print(f"{posx=}, {posy=}")
-            raise
+        # Counter-intuitively, lists of lists are indexed backwards.
+        # The inner lists are rows, the outer list collects those rows into columns.
+        grid[posy][posx] = "█"
     for line in grid:
         print("".join(line))
 
