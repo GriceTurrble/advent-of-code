@@ -31,6 +31,7 @@ day10 = "grice_py_aoc_2024.day10.main:main"
 day11 = "grice_py_aoc_2024.day11.main:main"
 day12 = "grice_py_aoc_2024.day12.main:main"
 day13 = "grice_py_aoc_2024.day13.main:main"
+day14 = "grice_py_aoc_2024.day14.main:main"
 
 [tool.pytest.ini_options]
 addopts = "-ra -q"
