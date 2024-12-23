@@ -12,7 +12,6 @@ EXPECTED_PART_1 = "4,6,3,5,6,3,5,2,1,0"
 EXPECTED_PART_2 = "456"  # TODO replace!
 
 
-@pytest.mark.skip(reason=f"{DIR.stem} P1 incomplete")
 def test_part1():
     contents = TEST_FILE.read_text()
     result = part1(contents=contents)
