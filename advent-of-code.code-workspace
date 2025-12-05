@@ -28,9 +28,9 @@
       "path": "2024",
     },
     {
-      "name": "-- scratchpad",
-      "path": "scratchpad",
-    },
+      "name": "-- 2025",
+      "path": "2025",
+    }
   ],
   "settings": {
     "files.exclude": {
@@ -40,7 +40,7 @@
       "2022/": true,
       "2023/": true,
       "2024/": true,
-      "scratchpad/": true,
+      "2025/": true,
     },
     "files.trimFinalNewlines": true,
     "files.insertFinalNewline": true,
