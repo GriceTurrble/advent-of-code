@@ -7,7 +7,7 @@ Simply `uv sync` in this folder to get started,
 then use the "kernel" in the generated `.venv` directory
 to run the notebooks.
 
-> ![note]
+> [!note]
 > I prefer not to use full Juyter itself,
 > instead I open these notebooks in VS Code directly.
 > Only the `ipykernel` depdency is required to run them this way.
