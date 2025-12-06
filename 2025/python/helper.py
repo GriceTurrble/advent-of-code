@@ -6,4 +6,4 @@ def get_input(day: int) -> str:
     file = Path(__file__).parent / "inputs" / day_filename
     if not file.exists():
         raise ValueError(f"Input file for day #{day} not found")
-    return file.read_text()
+    return file.read_text().strip()
