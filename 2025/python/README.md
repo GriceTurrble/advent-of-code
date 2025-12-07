@@ -20,7 +20,7 @@ to run the notebooks.
 - [Day 4](day04.ipynb)
 - [Day 5](day05.ipynb)
 - [Day 6](day06.ipynb)
-- Day 7 (_incomplete_)
+- [Day 7](day07.ipynb) (_in progress..._)
 - Day 8 (_incomplete_)
 - Day 9 (_incomplete_)
 - Day 10 (_incomplete_)
