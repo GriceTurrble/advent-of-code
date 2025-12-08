@@ -20,10 +20,7 @@ def _find_guard(grid: list[str]) -> tuple[int, int]:
     raise ValueError("Did not find the guard!")
 
 
-T = TypeVar("T")
-
-
-def _new_direction(directions: deque[T]) -> T:
+def _new_direction[T](directions: deque[T]) -> T:
     """Returns the direction at index 0.
 
     Directions is mutated by this function: it is rotated,
