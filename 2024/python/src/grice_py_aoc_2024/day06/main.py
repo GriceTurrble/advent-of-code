@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import time
-from collections import deque
+import typing
+from collections import defaultdict, deque
+from dataclasses import dataclass
 from pathlib import Path
 
 DIR = Path(__file__).parent
@@ -68,9 +70,55 @@ def part1(grid: list[str]) -> int:
     return len(visited)
 
 
+type Point = tuple[int, int]
+
+
 def part2(grid: list[str]):
-    # TODO
-    return "Not done yet!"
+    def parse(inputs):
+        obstacles: set[Point] = set()
+        guard = (0, 0)
+        delta = (0, -1)
+        for y, line in enumerate(grid):
+            for x, char in enumerate(line):
+                if char == "#":
+                    obstacles.add((x, y))
+                elif char == "^":
+                    guard = (x, y)
+        return obstacles, guard, delta
+
+    def walk(
+        obstacles: set[Point],
+        guard: Point,
+        delta: Point,
+    ):
+        nonlocal grid
+        width, height = len(grid[0]), len(grid)
+        dirs = defaultdict(set)
+
+        while delta not in dirs[guard]:
+            dirs[guard].add(delta)
+            new_point = (
+                guard[0] + delta[0],
+                guard[1] + delta[1],
+            )
+            if not (0 <= new_point[0] < width and 0 <= new_point[1] < height):
+                return set(dirs)
+            if new_point in obstacles:
+                delta = -delta[1], delta[0]
+            else:
+                guard = new_point[0], new_point[1]
+
+    obstacles, guard, delta = parse(grid)
+    visited = walk(obstacles=obstacles, guard=guard, delta=delta)
+
+    result = 0
+    for point in visited:
+        if point != guard:
+            obstacles.add(point)
+            if not walk(obstacles=obstacles, guard=guard, delta=delta):
+                result += 1
+            obstacles.remove(point)
+    return result
 
 
 def main():
