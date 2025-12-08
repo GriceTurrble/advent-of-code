@@ -3,7 +3,6 @@ from __future__ import annotations
 import time
 from collections import deque
 from pathlib import Path
-from typing import TypeVar
 
 DIR = Path(__file__).parent
 FILE = DIR.parents[3] / "inputs" / f"{DIR.stem}.txt"
