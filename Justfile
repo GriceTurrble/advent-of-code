@@ -28,3 +28,7 @@ prune_dead_branches:
 # Add new day for solutions in the current year
 new-day DAY:
     @just y{{CURRENT_YEAR}}::new-day {{DAY}}
+
+# run pre-commit hooks on all current files
+lint hook="":
+    pre-commit run {{hook}} --all-files
